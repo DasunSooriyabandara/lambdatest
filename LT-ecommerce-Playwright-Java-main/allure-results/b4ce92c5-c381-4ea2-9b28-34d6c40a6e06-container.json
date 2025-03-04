@@ -1,0 +1,1 @@
+{"uuid":"b4ce92c5-c381-4ea2-9b28-34d6c40a6e06","name":"pomTests.RegisterUserTC.setUp","children":["260dab77-11c5-4c64-a54c-89ceeb1a28d7"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1740825727061,"stop":1740825744018}],"afters":[],"start":1740825727061,"stop":1740825744019}
