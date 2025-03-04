@@ -6,7 +6,7 @@
       <class name="pomTests.ModulesPageTC">
         <methods>
           <include name="setUp"/>
-          <include name="productOverviewPageActions"/>
+          <include name="WriteReviewSection"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- pomTests.ModulesPageTC -->

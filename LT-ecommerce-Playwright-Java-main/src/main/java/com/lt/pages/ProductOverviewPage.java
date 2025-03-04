@@ -9,6 +9,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
@@ -33,9 +34,9 @@ public class ProductOverviewPage {
 	private Locator popup;
 	private Locator popupClose;
 	private Locator askQuestion;
-	private Locator contactusName;
-	private Locator contactusEmail;
-	private Locator contactusSubject;
+	private Locator reviewStarts;
+	private Locator reviewSubmitBtn;
+	private Locator reviewWarning;
 	private Locator contactusMessage;
 
 	public ProductOverviewPage(Page page) {
@@ -60,9 +61,9 @@ public class ProductOverviewPage {
 		this.popup = page.locator("#entry_216849 > a");
 		this.popupClose = page.locator("#mz-component-983507417 > div > div > button");
 		this.askQuestion = page.locator("#entry_216850 > a");
-//		this.contactusName = page.locator("#entry_216850 > a");
-//		this.contactusEmail = page.locator("#entry_216850 > a");
-//		this.contactusSubject = page.locator("#entry_216850 > a");
+//		this.reviewStarts = page.locator("//*[@id=\"form-review\"]/div[1]/span/label[3]");
+		this.reviewSubmitBtn = page.locator("//*[@id=\"form-review\"]/div[4]");
+		this.reviewWarning = page.locator("#entry_216850 > a");
 //		this.contactusMessage = page.locator("#entry_216850 > a");
 	}
 
@@ -164,7 +165,7 @@ public class ProductOverviewPage {
 
 		sizechart.click();
 
-		Locator sizechartavailable = page.locator("[data-id=\"entry_216864\" ]");
+		Locator sizechartavailable = page.locator("#entry_216864");
 
 		// Wait for the notification to appear (optional if it takes time)
 		sizechartavailable.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
@@ -178,7 +179,7 @@ public class ProductOverviewPage {
 
 		popup.click();
 
-		Locator popupavailable = page.locator("[data-id=\"entry_216870\"]");
+		Locator popupavailable = page.locator("#entry_216870");
 
 		// Wait for the notification to appear (optional if it takes time)
 		popupavailable.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
@@ -205,7 +206,7 @@ public class ProductOverviewPage {
 		System.out.println("Click Ask Question successfully");
 
 		// Fill in the form fields
-		page.getByLabel("Your name").fill(name);
+		page.getByLabel("Your name").nth(0).fill(name);
 		page.getByLabel("Your email").fill(password);
 		page.getByLabel("Subject").fill(subject);
 		page.getByLabel("Message").fill(message);
@@ -227,4 +228,41 @@ public class ProductOverviewPage {
 		// Wait for popup close button to be visible before clicking
 
 	}
+	
+	
+		public void reviewSection(String name,String review) {
+			
+//			boolean isSelected = page.locator("label[for='rating-5-216860']").isChecked();
+//			Assert.assertTrue(isSelected, "Radio button is not selected!");
+//
+//			System.out.println("Successfully select the  review stars");
+			
+			
+			// Set a flag to track whether the alert appears
+			AtomicBoolean alertAppeared = new AtomicBoolean(false);
+
+			// Listen for the alert
+			page.onceDialog(dialog -> {
+			    alertAppeared.set(true); // Mark that the alert appeared
+			    String alertText = dialog.message();
+			    Assert.assertEquals(alertText, "Warning: Review Text must be between 25 and 1000 characters!", "Warning message does not match!");
+//			    dialog.accept(); // Click 'OK' on the alert
+			});
+
+			// Click the submit button (Replace locator with the actual one)
+			
+			reviewSubmitBtn.click();
+
+			// Verify that the alert actually appeared
+			Assert.assertTrue(alertAppeared.get(), "Warning alert did not appear!");
+			
+			
+			page.getByLabel("Your Name").nth(0).fill(name);
+			page.getByLabel("Your Review").fill(review);
+			
+			
+			reviewSubmitBtn.click();
+			
+		}
 }
+

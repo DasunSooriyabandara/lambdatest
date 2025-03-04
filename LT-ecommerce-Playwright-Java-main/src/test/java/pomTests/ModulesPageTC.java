@@ -72,4 +72,10 @@ public class ModulesPageTC extends PlaywrightConnection {
     	ContactUs.ContactUsForm("Dasun", "Dasun@gmail.com", "Test Subject", "This a dummy message for Message section");
     }
     
+    @Test
+    public void WriteReviewSection() {
+    	ProductOverviewPage Review = new ProductOverviewPage(page);
+    	Review.reviewSection();
+    }
+    
 }
