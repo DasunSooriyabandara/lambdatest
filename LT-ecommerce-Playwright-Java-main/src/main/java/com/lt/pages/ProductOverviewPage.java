@@ -62,7 +62,7 @@ public class ProductOverviewPage {
 		this.popupClose = page.locator("#mz-component-983507417 > div > div > button");
 		this.askQuestion = page.locator("#entry_216850 > a");
 //		this.reviewStarts = page.locator("//*[@id=\"form-review\"]/div[1]/span/label[3]");
-		this.reviewSubmitBtn = page.locator("//*[@id=\"form-review\"]/div[4]");
+		this.reviewSubmitBtn = page.locator("role=button[name='Write Review']");
 		this.reviewWarning = page.locator("#entry_216850 > a");
 //		this.contactusMessage = page.locator("#entry_216850 > a");
 	}

@@ -75,7 +75,7 @@ public class ModulesPageTC extends PlaywrightConnection {
     @Test
     public void WriteReviewSection() {
     	ProductOverviewPage Review = new ProductOverviewPage(page);
-    	Review.reviewSection();
+    	Review.reviewSection("Dasun", "This is my reviev to test the  form input and get the warniing toaste message");
     }
     
 }
