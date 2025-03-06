@@ -16,66 +16,75 @@ import base.Driver;
 import base.PlaywrightConnection;
 
 public class ModulesPageTC extends PlaywrightConnection {
-    private Driver driver;
-    private Page page;
+	private Driver driver;
+	private Page page;
 
-    @BeforeClass
-    public void setUp() throws Exception {
-        driver = super.createConnection();
-        page = driver.getPage(); // Initialize page here
+	@BeforeClass
+	public void setUp() throws Exception {
+		driver = super.createConnection();
+		page = driver.getPage(); // Initialize page here
 
-        // Navigate to the required URL once before all tests
-        page.navigate("https://ecommerce-playground.lambdatest.io/");
-        page.waitForLoadState(LoadState.LOAD);
-        System.out.println("Navigated to: " + page.url());
-    }
+		// Navigate to the required URL once before all tests
+		page.navigate("https://ecommerce-playground.lambdatest.io/");
+		page.waitForLoadState(LoadState.LOAD);
+		System.out.println("Navigated to: " + page.url());
+	}
 
-    @AfterClass
-    public void tearDown() {
-        super.closeConnection(driver);
-    }
+	@AfterClass
+	public void tearDown() {
+		super.closeConnection(driver);
+	}
 
-    @Test(priority = 1)
-    public void openModulesPage() {
-        HeaderSection header1 = new HeaderSection(page);
+	@Test(priority = 1)
+	public void openModulesPage() {
+		HeaderSection header1 = new HeaderSection(page);
 
-        try {
-            header1.clickModules();
+		try {
+			header1.clickModules();
 
-            String actualTitle = page.title();
-            System.out.println("Actual title: " + actualTitle);
-            Assert.assertEquals(actualTitle, "Available Modules");
+			String actualTitle = page.title();
+			System.out.println("Actual title: " + actualTitle);
+			Assert.assertEquals(actualTitle, "Available Modules");
 
-        } catch (PlaywrightException err) {
-            super.setTestStatus("failed", err.getMessage(), page);
-            err.printStackTrace();
-        }
-    }
+		} catch (PlaywrightException err) {
+			super.setTestStatus("failed", err.getMessage(), page);
+			err.printStackTrace();
+		}
+	}
 
-    @Test(priority = 2)
-    public void productListing() {
-        ModulesPage modPage = new ModulesPage(page);
-        modPage.productListingSection();
-    }
-    
-    
-    
-    @Test(priority = 4)
-    public void productOverviewPageActions() {
-    	ProductOverviewPage povp = new ProductOverviewPage(page);
-    	povp.productOverviewPage1();
-    }
-    
-    @Test(priority = 5)
-    public void ContactUsFormActions() {
-    	ProductOverviewPage ContactUs = new ProductOverviewPage(page);
-    	ContactUs.ContactUsForm("Dasun", "Dasun@gmail.com", "Test Subject", "This a dummy message for Message section");
-    }
-    
-    @Test
-    public void WriteReviewSection() {
-    	ProductOverviewPage Review = new ProductOverviewPage(page);
-    	Review.reviewSection("Dasun", "This is my reviev to test the  form input and get the warniing toaste message");
-    }
-    
+	@Test(priority = 2)
+	public void productListing() {
+		ModulesPage modPage = new ModulesPage(page);
+		modPage.productListingSection();
+	}
+
+	@Test(priority = 4)
+	public void productOverviewPageActions() {
+		ProductOverviewPage povp = new ProductOverviewPage(page);
+		povp.productOverviewPage1();
+	}
+
+	@Test(priority = 5)
+	public void ContactUsFormActions() {
+		ProductOverviewPage ContactUs = new ProductOverviewPage(page);
+		ContactUs.ContactUsForm("Dasun", "Dasun@gmail.com", "Test Subject", "This a dummy message for Message section");
+	}
+
+	@Test
+	public void WriteReviewSection() {
+		ProductOverviewPage Review = new ProductOverviewPage(page);
+		Review.reviewSection("Dasun", "This is my reviev to test the  form input and get the warniing toaste message");
+	}
+
+	@Test
+	public void itemdiscriptions() {
+		ProductOverviewPage discription = new ProductOverviewPage(page);
+		discription.itemdiscription();
+	}
+
+	@Test
+	public void FAQSection() {
+		ProductOverviewPage faq = new ProductOverviewPage(page);
+		faq.FAQSection();
+	}
 }

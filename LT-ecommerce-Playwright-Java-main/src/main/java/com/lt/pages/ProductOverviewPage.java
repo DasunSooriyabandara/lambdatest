@@ -38,6 +38,11 @@ public class ProductOverviewPage {
 	private Locator reviewSubmitBtn;
 	private Locator reviewWarning;
 	private Locator contactusMessage;
+	private Locator addtofavourite;
+	private Locator descriptionsection;
+	private Locator showLessBtn;
+	private Locator reviewBtn;
+	private Locator customBtn;
 
 	public ProductOverviewPage(Page page) {
 		this.page = page;
@@ -62,9 +67,15 @@ public class ProductOverviewPage {
 		this.popupClose = page.locator("#mz-component-983507417 > div > div > button");
 		this.askQuestion = page.locator("#entry_216850 > a");
 //		this.reviewStarts = page.locator("//*[@id=\"form-review\"]/div[1]/span/label[3]");
-		this.reviewSubmitBtn = page.locator("role=button[name='Write Review']");
+		this.reviewSubmitBtn = page.locator("#form-review > div.buttons.clearfix > div");
 		this.reviewWarning = page.locator("#entry_216850 > a");
 //		this.contactusMessage = page.locator("#entry_216850 > a");
+//--------------item discription section -----------------------		
+		this.addtofavourite = page.locator("#image-gallery-216811 > div.image-thumb.d-flex > button");
+		this.descriptionsection = page.locator("#entry_216814 > div.clearfix > div > ul > li:nth-child(1)");
+		this.showLessBtn = page.locator("#mz-design-tab-216814-0 > div > div > div > a");
+		this.reviewBtn = page.locator("#entry_216814 > div.clearfix > div > ul > li:nth-child(2)");
+		this.customBtn = page.locator("#entry_216814 > div.clearfix > div > ul > li:nth-child(3) > a");
 	}
 
 	public void productOverviewPage1() {
@@ -216,53 +227,180 @@ public class ProductOverviewPage {
 		System.out.println("Successfully click the submit button");
 
 		Locator popup = page.locator(" body > div.alert.alert-success.alert-notification.w-50.alert-dismissible");
-		
+
 		popup.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		
+
 		System.out.println("Submit successfull message :" + popup);
-		
+
 		// Assert that the notification is visible
 		Assert.assertTrue(popup.isVisible(), "toaste message did not appear!");
-		
 
 		// Wait for popup close button to be visible before clicking
 
 	}
-	
-	
-		public void reviewSection(String name,String review) {
-			
+
+	// ----------------------Problem in this
+	// section--------------------------------------------------------------------------------------------
+	public void reviewSection(String name, String review) {
+
 //			boolean isSelected = page.locator("label[for='rating-5-216860']").isChecked();
 //			Assert.assertTrue(isSelected, "Radio button is not selected!");
 //
 //			System.out.println("Successfully select the  review stars");
-			
-			
-			// Set a flag to track whether the alert appears
-			AtomicBoolean alertAppeared = new AtomicBoolean(false);
 
-			// Listen for the alert
-			page.onceDialog(dialog -> {
-			    alertAppeared.set(true); // Mark that the alert appeared
-			    String alertText = dialog.message();
-			    Assert.assertEquals(alertText, "Warning: Review Text must be between 25 and 1000 characters!", "Warning message does not match!");
+		// Set a flag to track whether the alert appears
+		AtomicBoolean alertAppeared = new AtomicBoolean(false);
+
+		// Listen for the alert
+		page.onceDialog(dialog -> {
+			alertAppeared.set(true); // Mark that the alert appeared
+			String alertText = dialog.message();
+			Assert.assertEquals(alertText, "Warning: Review Text must be between 25 and 1000 characters!",
+					"Warning message does not match!");
 //			    dialog.accept(); // Click 'OK' on the alert
-			});
+		});
 
-			// Click the submit button (Replace locator with the actual one)
-			
-			reviewSubmitBtn.click();
+		// Click the submit button (Replace locator with the actual one)
 
-			// Verify that the alert actually appeared
-			Assert.assertTrue(alertAppeared.get(), "Warning alert did not appear!");
-			
-			
-			page.getByLabel("Your Name").nth(0).fill(name);
-			page.getByLabel("Your Review").fill(review);
-			
-			
-			reviewSubmitBtn.click();
-			
-		}
+		reviewSubmitBtn.click();
+
+		// Verify that the alert actually appeared
+		Assert.assertTrue(alertAppeared.get(), "Warning alert did not appear!");
+
+		page.getByLabel("Your Name").nth(0).fill(name);
+		page.getByLabel("Your Review").fill(review);
+
+		reviewSubmitBtn.click();
+
+	}
+
+	public void itemdiscription() {
+
+//		addtofavourite.click();
+//		System.out.println("Click favouritet button");
+//
+//		Locator favourite = page.locator("//*[@id=\"notification-box-top\"]");
+//
+//		// Wait for the notification to appear (optional if it takes time)
+//		favourite.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+//
+//		System.out.println("-----------" + favourite.textContent() + "---------------");
+//		// Assert that the notification is visible
+//		Assert.assertTrue(favourite.isVisible(), "Notification did not appear!");
+
+		System.out.println("Successfully disply warinig , cant add to favourite insted of login");
+// ---------------------------------------------------------------------------------------------------------
+		descriptionsection.click();
+		Locator descriptionsec = page.locator("#mz-design-tab-216814-0");
+		// Wait for the notification to appear (optional if it takes time)
+		descriptionsec.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		Assert.assertTrue(descriptionsec.isVisible(), "Description section not available");
+
+		System.out.println("Item discrption section available");
+//---------------------------------------------------------------------------------------------------------------
+
+		showLessBtn.click();
+		boolean isClicked = showLessBtn.isChecked();
+		Assert.assertTrue(isClicked, "Show less button is NOT Clicked !");
+		System.out.println("✅ Successfully click the show button");
+
+		page.waitForTimeout(2000); // Wait for 3 seconds (3000ms)
+
+		showLessBtn.click();
+		boolean isClicked2 = showLessBtn.isChecked();
+		Assert.assertTrue(isClicked2, "Show Hide button is NOT Clicked !");
+		System.out.println("✅ Successfully click the Hide button");
+
+//---------------------------------------------------------------------------------------------------------
+		reviewBtn.click();
+
+		String dis = page.locator("#mz-design-tab-216814-2").textContent().trim();
+
+		Assert.assertEquals(dis, "There are no reviews for this product.");
+
+		System.out.println("review section access succesfully");
+
+//---------------------------------------------------------------------------------------------------------
+
+		customBtn.click();
+
+		String customSec = page.locator("#mz-design-tab-216814-3").textContent().trim();
+
+		Assert.assertEquals(customSec,
+				"Create unlimited custom tabs and add any product detail, module, widget, design or HTML. Also possible to create custom tab layout using layout builder");
+
+		System.out.println("Custom section access succesfully");
+
+	}
+
+	public void FAQSection() {
+
+		String topic = page.locator("#entry_216863 > h3").textContent().trim();
+		Assert.assertEquals(topic, "FAQ (Frequently Asked Questions)");
+		System.out.println("Successfully get  the FAQ title");
+
+		String ques1 = page.locator("#mz-faq-label-216863-0 > span").textContent().trim();
+		System.out.println("question one :" + ques1);
+
+		Locator btn1 = page.locator("#mz-faq-label-216863-0 > i");
+		boolean clickbtn1 = btn1.isChecked();
+		Assert.assertTrue(clickbtn1, "FAQ button 1 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 1");
+		// ---------------------------------------------------------------------
+		String ques2 = page.locator("#mz-faq-label-216863-1 > span").textContent().trim();
+		System.out.println("question two :" + ques2);
+
+		Locator btn2 = page.locator("#mz-faq-label-216863-1 > i");
+		boolean clickbtn2 = btn2.isChecked();
+		Assert.assertTrue(clickbtn2, "FAQ button 2 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 2");
+
+		// ---------------------------------------------------------------------
+		String ques3 = page.locator("#mz-faq-label-216863-3 > span").textContent().trim();
+		System.out.println("question three :" + ques3);
+
+		Locator btn3 = page.locator("#mz-faq-label-216863-3 > i");
+		boolean clickbtn3 = btn3.isChecked();
+		Assert.assertTrue(clickbtn3, "FAQ button 3 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 3");
+
+		// ---------------------------------------------------------------------
+		String ques4 = page.locator("#mz-faq-label-216863-4 > span").textContent().trim();
+		System.out.println("question four :" + ques4);
+
+		Locator btn4 = page.locator("#mz-faq-label-216863-4 > i");
+		boolean clickbtn4 = btn4.isChecked();
+		Assert.assertTrue(clickbtn4, "FAQ button 4 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 4");
+
+		// ---------------------------------------------------------------------
+		String ques5 = page.locator("#mz-faq-label-216863-5 > span").textContent().trim();
+		System.out.println("question five :" + ques5);
+
+		Locator btn5 = page.locator("#mz-faq-label-216863-5 > i");
+		boolean clickbtn5 = btn5.isChecked();
+		Assert.assertTrue(clickbtn5, "FAQ button 5 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 5");
+
+		// ---------------------------------------------------------------------
+		String ques6 = page.locator("#mz-faq-label-216863-6 > span").textContent().trim();
+		System.out.println("question six :" + ques6);
+
+		Locator btn6 = page.locator("#mz-faq-label-216863-6 > i");
+		boolean clickbtn6 = btn6.isChecked();
+		Assert.assertTrue(clickbtn6, "FAQ button 6 is NOT Clicked !");
+		System.out.println("✅ Successfully click the FAQ button 6");
+		
+		
+		page.waitForTimeout(2000); // Wait for 3 seconds (3000ms)
+		
+		Locator backToTop = page.locator("//*[@id=\"back-to-top\"]");
+		boolean toTop = backToTop.isChecked();
+		Assert.assertTrue(toTop, "Back to top button is NOT Clicked !");
+		System.out.println("✅ Successfully click the Back to top button");
+		
+
+		
+
+	}
 }
-
