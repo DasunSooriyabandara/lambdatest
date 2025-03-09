@@ -70,19 +70,19 @@ public class ModulesPageTC extends PlaywrightConnection {
 		ContactUs.ContactUsForm("Dasun", "Dasun@gmail.com", "Test Subject", "This a dummy message for Message section");
 	}
 
-	@Test
+	@Test(priority = 6)
 	public void WriteReviewSection() {
 		ProductOverviewPage Review = new ProductOverviewPage(page);
 		Review.reviewSection("Dasun", "This is my reviev to test the  form input and get the warniing toaste message");
 	}
 
-	@Test
+	@Test(priority = 7)
 	public void itemdiscriptions() {
 		ProductOverviewPage discription = new ProductOverviewPage(page);
-		discription.itemdiscription();
+		discription.itemDescription();
 	}
 
-	@Test
+	@Test(priority = 8)
 	public void FAQSection() {
 		ProductOverviewPage faq = new ProductOverviewPage(page);
 		faq.FAQSection();
