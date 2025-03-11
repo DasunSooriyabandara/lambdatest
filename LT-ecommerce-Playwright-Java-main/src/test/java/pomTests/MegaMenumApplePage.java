@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.lt.pages.HeaderSection;
+import com.lt.pages.MegaMenuPage;
 import com.lt.pages.ModulesPage;
 import com.lt.pages.ProductOverviewPage;
 import com.microsoft.playwright.Page;
@@ -15,7 +16,7 @@ import com.microsoft.playwright.options.LoadState;
 import base.Driver;
 import base.PlaywrightConnection;
 
-public class ModulesPageTC extends PlaywrightConnection {
+public class MegaMenumApplePage extends PlaywrightConnection {
 	private Driver driver;
 	private Page page;
 
@@ -36,15 +37,15 @@ public class ModulesPageTC extends PlaywrightConnection {
 	}
 
 	@Test(priority = 1)
-	public void openModulesPage() {
+	public void openAppleProductPage() {
 		HeaderSection header1 = new HeaderSection(page);
 
 		try {
-			header1.clickModules();
+			header1.clickMegaMenu();
 
 			String actualTitle = page.title();
 			System.out.println("Actual title: " + actualTitle);
-			Assert.assertEquals(actualTitle, "Available Modules");
+			Assert.assertEquals(actualTitle, "Apple");
 
 		} catch (PlaywrightException err) {
 			super.setTestStatus("failed", err.getMessage(), page);
@@ -53,9 +54,9 @@ public class ModulesPageTC extends PlaywrightConnection {
 	}
 
 	@Test(priority = 2)
-	public void productListing() {
-		ModulesPage modPage = new ModulesPage(page);
-		modPage.productListingSection();
+	public void InitialValidations() {
+		MegaMenuPage InitialDetails  = new 		MegaMenuPage(page);
+		InitialDetails.productOverviewPage();
 	}
 
 	@Test(priority = 4)
