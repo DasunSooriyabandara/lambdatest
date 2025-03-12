@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pomTests.ModulesPageTC">
+      <class name="pomTests.MegaMenumApplePageTC">
         <methods>
-          <include name="setUp"/>
-          <include name="WriteReviewSection"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="InitialValidations"/>
         </methods>
-      </class> <!-- pomTests.ModulesPageTC -->
+      </class> <!-- pomTests.MegaMenumApplePageTC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

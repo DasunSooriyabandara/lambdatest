@@ -16,7 +16,7 @@ import com.microsoft.playwright.options.LoadState;
 import base.Driver;
 import base.PlaywrightConnection;
 
-public class MegaMenumApplePage extends PlaywrightConnection {
+public class MegaMenumApplePageTC extends PlaywrightConnection {
 	private Driver driver;
 	private Page page;
 
@@ -56,43 +56,8 @@ public class MegaMenumApplePage extends PlaywrightConnection {
 	@Test(priority = 2)
 	public void InitialValidations() {
 		MegaMenuPage InitialDetails  = new 		MegaMenuPage(page);
-		InitialDetails.productOverviewPage();
+		InitialDetails.productOverview();
 	}
 
-	@Test(priority = 4)
-	public void productOverviewPageActions() {
-		ProductOverviewPage povp = new ProductOverviewPage(page);
-		povp.productOverviewPage1();
-	}
-
-	@Test(priority = 5)
-	public void chartSection() {
-		ProductOverviewPage charts = new ProductOverviewPage(page);
-		charts.SizechatPopUpAskQ();
-	}
 	
-	
-	@Test(priority = 6)
-	public void ContactUsFormActions() {
-		ProductOverviewPage ContactUs = new ProductOverviewPage(page);
-		ContactUs.ContactUsForm("Dasun", "Dasun@gmail.com", "Test Subject", "This a dummy message for Message section");
-	}
-
-	@Test(priority = 7)
-	public void WriteReviewSection() {
-		ProductOverviewPage Review = new ProductOverviewPage(page);
-		Review.reviewSection("Dasun", "This is my reviev to test the  form input and get the warniing toaste message");
-	}
-
-	@Test(priority = 8)
-	public void itemdiscriptions() {
-		ProductOverviewPage discription = new ProductOverviewPage(page);
-		discription.itemDescription();
-	}
-
-	@Test(priority = 9)
-	public void FAQSection() {
-		ProductOverviewPage faq = new ProductOverviewPage(page);
-		faq.FAQSection();
-	}
 }
