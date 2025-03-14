@@ -9,45 +9,17 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">57,290</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">42,597</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">pomTests.MegaMenumApplePageTC</td><td><a href="#m0">InitialValidations</a></td><td rowspan="1">1741806844872</td><td rowspan="1">39836</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">pomTests.MegaMenumApplePageTC</td><td><a href="#m1">openAppleProductPage</a></td><td rowspan="1">1741806843233</td><td rowspan="1">1580</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">pomTests.MegaMenumApplePageTC</td><td><a href="#m0">InitialValidations</a></td><td rowspan="1">1741974174930</td><td rowspan="1">27656</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">pomTests.MegaMenumApplePageTC</td><td><a href="#m1">openAppleProductPage</a></td><td rowspan="1">1741974173498</td><td rowspan="1">1114</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">pomTests.MegaMenumApplePageTC#InitialValidations</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:111)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:126)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:102)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:722)
-	at com.microsoft.playwright.impl.FrameImpl.selectOptionImpl(FrameImpl.java:689)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$selectOption$31(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:87)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:119)
-	at com.microsoft.playwright.impl.LocatorImpl.selectOption(LocatorImpl.java:486)
-	at com.microsoft.playwright.Locator.selectOption(Locator.java:4374)
-	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:98)
+<h2>Default test</h2><h3 id="m0">pomTests.MegaMenumApplePageTC#InitialValidations</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Locator@#entry_212439 &gt; div &gt; div:nth-child(1) &gt; div &gt; div.caption &gt; h4] but found [iPod Shuffle]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:442)
+	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:281)
 	at pomTests.MegaMenumApplePageTC.InitialValidations(MegaMenumApplePageTC.java:59)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -72,31 +44,6 @@ waiting for locator(&quot;#input-sort-212434&quot;)
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:224)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:206)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:109)
-	... 36 more
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m1">pomTests.MegaMenumApplePageTC#openAppleProductPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 13 00:43:47 IST 2025</td>
+<td>Started on:</td><td>Fri Mar 14 23:12:40 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>57 seconds (57290 ms)</td>
+<tr><td>Total time:</td><td>42 seconds (42597 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,41 +76,13 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='pomTests.MegaMenumApplePageTC.InitialValidations()'><b>InitialValidations</b><br>Test class: pomTests.MegaMenumApplePageTC</td>
-<td><div><pre>com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:111)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:126)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:102)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:722)
-	at com.microsoft.playwright.impl.FrameImpl.selectOptionImpl(FrameImpl.java:689)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$selectOption$31(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:87)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:119)
-	at com.microsoft.playwright.impl.LocatorImpl.selectOption(LocatorImpl.java:486)
-	at com.microsoft.playwright.Locator.selectOption(Locator.java:4374)
-	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:98)
+<td><div><pre>java.lang.AssertionError: expected [Locator@#entry_212439 &gt; div &gt; div:nth-child(1) &gt; div &gt; div.caption &gt; h4] but found [iPod Shuffle]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:442)
+	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:281)
 	at pomTests.MegaMenumApplePageTC.InitialValidations(MegaMenumApplePageTC.java:59)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -135,67 +107,14 @@ waiting for locator(&quot;#input-sort-212434&quot;)
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:224)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:206)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:109)
-	... 36 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace3886839", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace3886839'><pre>com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:111)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:126)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:102)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:722)
-	at com.microsoft.playwright.impl.FrameImpl.selectOptionImpl(FrameImpl.java:689)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$selectOption$31(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:87)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:677)
-	at com.microsoft.playwright.impl.FrameImpl.selectOption(FrameImpl.java:119)
-	at com.microsoft.playwright.impl.LocatorImpl.selectOption(LocatorImpl.java:486)
-	at com.microsoft.playwright.Locator.selectOption(Locator.java:4374)
-	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:98)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1991290395", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1991290395'><pre>java.lang.AssertionError: expected [Locator@#entry_212439 &gt; div &gt; div:nth-child(1) &gt; div &gt; div.caption &gt; h4] but found [iPod Shuffle]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:442)
+	at com.lt.pages.MegaMenuPage.productOverview(MegaMenuPage.java:281)
 	at pomTests.MegaMenumApplePageTC.InitialValidations(MegaMenumApplePageTC.java:59)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -220,33 +139,8 @@ waiting for locator(&quot;#input-sort-212434&quot;)
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-=========================== logs ===========================
-waiting for locator(&quot;#input-sort-212434&quot;)
-  locator resolved to &lt;select class=&quot;custom-select&quot; id=&quot;input-sort-212434&quot; onc…&gt;…&lt;/select&gt;
-  selecting specified option(s)
-    did not find some options - waiting... 
-============================================================
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\progress.js:88:26)
-    at Frame.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\frames.js:1151:23)
-    at FrameDispatcher.selectOption (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\frameDispatcher.js:238:33)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-6614859780156211414\package\lib\server\dispatchers\dispatcher.js:313:46)
-}
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:224)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:206)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:109)
-	... 36 more
 </pre></div></td>
-<td>39</td>
+<td>27</td>
 <td>pomTests.MegaMenumApplePageTC@57abad67</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
