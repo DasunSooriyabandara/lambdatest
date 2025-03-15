@@ -55,9 +55,32 @@ public class MegaMenumApplePageTC extends PlaywrightConnection {
 
 	@Test(priority = 2)
 	public void InitialValidations() {
-		MegaMenuPage InitialDetails  = new 		MegaMenuPage(page);
+		MegaMenuPage InitialDetails = new MegaMenuPage(page);
 		InitialDetails.productOverview();
 	}
 
+	@Test(priority = 3)
+	public void FilterSectionPriceAndSearch() {
+		MegaMenuPage FilterSection1 = new MegaMenuPage(page);
+		FilterSection1.FilterSectionPriceNSearch();
+	}
+
+	
+	@Test(priority = 4)
+	public void FilterSectionAvailability() {
+		MegaMenuPage FilterSection2 = new MegaMenuPage(page);
+		FilterSection2.FilterSectionItemAvailability();
+	}
+
+	@Test(priority = 5)
+	public void ActionsItem() {
+		MegaMenuPage ItemActions = new MegaMenuPage(page);
+		ItemActions.FourActioButtons();
+	}
+
+	
+	
+	
+	
 	
 }

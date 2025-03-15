@@ -38,6 +38,7 @@ public class MegaMenuPage {
 	private Locator quicView;
 	private Locator quicViewHeading;
 	private Locator compareProduct;
+	private Locator desktopLink;
 
 	public MegaMenuPage(Page page) {
 		this.page = page;
@@ -73,10 +74,13 @@ public class MegaMenuPage {
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-wishlist.wishlist-34");
 		this.quicView = page.locator(
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-quick-view.quick-view-34");
-		this.quicViewHeading = page.locator("#entry_212948");
+		this.quicViewHeading = page.locator("#entry_212948"); 
 		this.compareProduct = page.locator(
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-compare.compare-34");
 
+		//----Desktop Page---------
+		this.desktopLink.locator("#entry_212443 > div > a:nth-child(1)");
+		
 	}
 
 	public void productOverview() {
@@ -129,6 +133,8 @@ public class MegaMenuPage {
 
 		System.out.println("Successfully select the sort by Best Seller");
 
+	}
+		 public void FilterSectionPriceNSearch() {
 		// ----------------------------FIlters----------------------
 
 		PriceRangeFrom.clear();
@@ -153,7 +159,12 @@ public class MegaMenuPage {
 		Assert.assertEquals(searchItemTitle, "iPod Touch");
 
 		System.out.println("Successfully searched item displayed.");
-
+		
+		 }
+		 
+		 
+		 public void FilterSectionItemAvailability() {
+		 
 		// --------Filters- Availability -----------In Stock ------------
 
 		Locator label = page.locator("label[for='mz-fss-0--1']");
@@ -217,6 +228,11 @@ public class MegaMenuPage {
 					.println("❌ The entered number " + enteredNumber3 + " is NOT found in the text: " + retrievedText3);
 		}
 
+		 }
+		 
+		 
+		 
+		 public void FourActioButtons() {
 		// ------------------------------ 1 st item actions- add to cart----------------
 
 		addtocart.click();
@@ -234,9 +250,10 @@ public class MegaMenuPage {
 		System.out.println("Successfully disply notification Add to Cart");
 
 		ViewCart.click();
+		System.out.println("Successfully Click View Cart Butoon on add to cart Notification");
 		
 		String actualTitleViewCartPage = page.title();
-		System.out.println("Actual title: " + actualTitle);
+		System.out.println("Actual title: " + actualTitleViewCartPage);
 		Assert.assertEquals(actualTitleViewCartPage, "Shopping Cart");
 		
 		page.goBack();
@@ -260,6 +277,9 @@ public class MegaMenuPage {
 
 //------------------------------ 1 st item actions- add to Quic View----------------
 
+		Locator ItemOneHeading = page.locator("#entry_212439 > div > div:nth-child(1) > div > div.caption > h4");
+		String ItemOneHeading1 = ItemOneHeading.textContent().trim();
+		
 		quicView.click();
 		System.out.println("Click Quic View button");
 
@@ -274,11 +294,11 @@ public class MegaMenuPage {
 
 		System.out.println("Successfully disply notification Quic View");
 
-		Locator ItemOneHeading = page.locator("#entry_212439 > div > div:nth-child(1) > div > div.caption > h4");
+		
 
 		String QuicViewHeadg1 = quicViewHeading.textContent().trim();
-		System.out.println("Quic view Section Title: " + sectionTitle1);
-		Assert.assertEquals(QuicViewHeadg1, ItemOneHeading);
+		System.out.println("Quic view Section Title: " + QuicViewHeadg1);
+		Assert.assertEquals(QuicViewHeadg1, ItemOneHeading1);
 
 		System.out.println("Succesfully Open the Quic View");
 
@@ -303,5 +323,15 @@ public class MegaMenuPage {
 		System.out.println("Successfully disply notification Compare product");
 
 	}
+		 
+		 public void DesktopPage() {
+			 
+			 desktopLink.click();
+			
+			 String actualTitleDesktopsPage = page.title();
+				System.out.println("Actual title: " + actualTitleDesktopsPage);
+				Assert.assertEquals(actualTitleDesktopsPage, "Shopping Cart");
+				System.out.println("Successfully open Desktops Page");
+		 }
 
 }
