@@ -39,6 +39,8 @@ public class MegaMenuPage {
 	private Locator quicViewHeading;
 	private Locator compareProduct;
 	private Locator desktopLink;
+	private Locator pcLink;
+	private Locator pcLinkColor;
 
 	public MegaMenuPage(Page page) {
 		this.page = page;
@@ -74,13 +76,15 @@ public class MegaMenuPage {
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-wishlist.wishlist-34");
 		this.quicView = page.locator(
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-quick-view.quick-view-34");
-		this.quicViewHeading = page.locator("#entry_212948"); 
+		this.quicViewHeading = page.locator("#entry_212948");
 		this.compareProduct = page.locator(
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-compare.compare-34");
 
-		//----Desktop Page---------
-		this.desktopLink.locator("#entry_212443 > div > a:nth-child(1)");
-		
+		// ----Desktop Page---------
+		this.desktopLink = page.locator("#entry_212443 > div > a:nth-child(1)");
+		this.pcLink = page.locator("#mz-filter-panel-0-4 > div > div:nth-child(1) > div");
+		this.pcLinkColor = page.locator("#mz-filter-panel-0-4 > div > div:nth-child(1) > div > label");
+
 	}
 
 	public void productOverview() {
@@ -134,7 +138,8 @@ public class MegaMenuPage {
 		System.out.println("Successfully select the sort by Best Seller");
 
 	}
-		 public void FilterSectionPriceNSearch() {
+
+	public void FilterSectionPriceNSearch() {
 		// ----------------------------FIlters----------------------
 
 		PriceRangeFrom.clear();
@@ -159,12 +164,11 @@ public class MegaMenuPage {
 		Assert.assertEquals(searchItemTitle, "iPod Touch");
 
 		System.out.println("Successfully searched item displayed.");
-		
-		 }
-		 
-		 
-		 public void FilterSectionItemAvailability() {
-		 
+
+	}
+
+	public void FilterSectionItemAvailability() {
+
 		// --------Filters- Availability -----------In Stock ------------
 
 		Locator label = page.locator("label[for='mz-fss-0--1']");
@@ -228,11 +232,9 @@ public class MegaMenuPage {
 					.println("❌ The entered number " + enteredNumber3 + " is NOT found in the text: " + retrievedText3);
 		}
 
-		 }
-		 
-		 
-		 
-		 public void FourActioButtons() {
+	}
+
+	public void FourActioButtons() {
 		// ------------------------------ 1 st item actions- add to cart----------------
 
 		addtocart.click();
@@ -251,13 +253,12 @@ public class MegaMenuPage {
 
 		ViewCart.click();
 		System.out.println("Successfully Click View Cart Butoon on add to cart Notification");
-		
+
 		String actualTitleViewCartPage = page.title();
 		System.out.println("Actual title: " + actualTitleViewCartPage);
 		Assert.assertEquals(actualTitleViewCartPage, "Shopping Cart");
-		
+
 		page.goBack();
-		
 
 //------------------------------ 1 st item actions- add to wish list----------------
 
@@ -279,7 +280,7 @@ public class MegaMenuPage {
 
 		Locator ItemOneHeading = page.locator("#entry_212439 > div > div:nth-child(1) > div > div.caption > h4");
 		String ItemOneHeading1 = ItemOneHeading.textContent().trim();
-		
+
 		quicView.click();
 		System.out.println("Click Quic View button");
 
@@ -293,8 +294,6 @@ public class MegaMenuPage {
 		Assert.assertTrue(tonotification2.isVisible(), "Notification did not appear!");
 
 		System.out.println("Successfully disply notification Quic View");
-
-		
 
 		String QuicViewHeadg1 = quicViewHeading.textContent().trim();
 		System.out.println("Quic view Section Title: " + QuicViewHeadg1);
@@ -323,15 +322,64 @@ public class MegaMenuPage {
 		System.out.println("Successfully disply notification Compare product");
 
 	}
-		 
-		 public void DesktopPage() {
-			 
-			 desktopLink.click();
-			
-			 String actualTitleDesktopsPage = page.title();
-				System.out.println("Actual title: " + actualTitleDesktopsPage);
-				Assert.assertEquals(actualTitleDesktopsPage, "Shopping Cart");
-				System.out.println("Successfully open Desktops Page");
-		 }
+
+	public void DesktopPage() {
+
+		System.out.println("Desktop link locator: " + desktopLink);
+		if (desktopLink == null) {
+			throw new RuntimeException("desktopLink is not initialized!");
+		}
+
+		desktopLink.click();
+
+		String actualTitleDesktopsPage = page.title();
+		System.out.println("Actual title: " + actualTitleDesktopsPage);
+		Assert.assertEquals(actualTitleDesktopsPage, "Desktops");
+		System.out.println("Successfully open Desktops Page");
+	}
+
+	public void DesktopPageClickPCLink() {
+
+		pcLink.click();
+		String actualTitlePCPage = page.title();
+		System.out.println("Actual title: " + actualTitlePCPage);
+		Assert.assertEquals(actualTitlePCPage, "Desktops");
+		System.out.println("Successfully open PC Page");
+
+		pcLinkColor.click();
+
+		String enteredNumber3 = "4";
+
+		String pcBlueColorItems = page.locator("#entry_212440 > div > div.col-sm-6.text-right").textContent().trim();
+		System.out.println("Total items in PC page in Blue Color:" + pcBlueColorItems);
+
+		// Check if the entered number is included in the retrieved text
+		if (pcBlueColorItems.contains(enteredNumber3)) {
+			System.out.println("✅ The entered number " + enteredNumber3 + " is found in the text: " + pcBlueColorItems);
+		} else {
+			System.out.println(
+					"❌ The entered number " + enteredNumber3 + " is NOT found in the text: " + pcBlueColorItems);
+		}
+		// ---------------------------------------------------------------------------------------------------------
+
+		// Locate all item titles using a common selector
+		Locator items = page.locator("[id^='entry_'] div.caption > h4");
+
+		// Wait for at least one item to appear
+		items.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+		// Get the total count of listed items
+		int count = items.count();
+		System.out.println("Total Items Found: " + count);
+
+		// Print the first 4 item titles (or fewer if less than 4 exist)
+		for (int i = 0; i < Math.min(4, count); i++) {
+			System.out.println("Item " + (i + 1) + " Title: " + items.nth(i).textContent().trim());
+		}
+
+//		#entry_212408 > div > div:nth-child(1) > div > div.caption > h4
+//		#entry_212408 > div > div:nth-child(2) > div > div.caption > h4
+
+	}
 
 }

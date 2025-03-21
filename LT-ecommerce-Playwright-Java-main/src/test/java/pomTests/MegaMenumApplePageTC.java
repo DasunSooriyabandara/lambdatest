@@ -65,7 +65,6 @@ public class MegaMenumApplePageTC extends PlaywrightConnection {
 		FilterSection1.FilterSectionPriceNSearch();
 	}
 
-	
 	@Test(priority = 4)
 	public void FilterSectionAvailability() {
 		MegaMenuPage FilterSection2 = new MegaMenuPage(page);
@@ -78,9 +77,18 @@ public class MegaMenumApplePageTC extends PlaywrightConnection {
 		ItemActions.FourActioButtons();
 	}
 
-	
-	
-	
-	
-	
+	@Test(priority = 6)
+	public void DesktopPageLink() {
+		MegaMenuPage DesktopInitials = new MegaMenuPage(page);
+		DesktopInitials.DesktopPage();
+
+	}
+
+	@Test(priority = 7)
+	public void DesktopPagePClink() {
+		MegaMenuPage DesktopPCPage = new MegaMenuPage(page);
+		DesktopPCPage.DesktopPageClickPCLink();
+
+	}
+
 }
