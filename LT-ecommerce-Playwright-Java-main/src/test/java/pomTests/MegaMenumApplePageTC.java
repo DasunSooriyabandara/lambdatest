@@ -90,5 +90,12 @@ public class MegaMenumApplePageTC extends PlaywrightConnection {
 		DesktopPCPage.DesktopPageClickPCLink();
 
 	}
+	
+	@Test(priority = 8)
+	public void DesktopPageMaclink() {
+		MegaMenuPage DesktopMacPage = new MegaMenuPage(page);
+		DesktopMacPage.DesktopPageClickMacLink();
+
+	}
 
 }

@@ -41,6 +41,9 @@ public class MegaMenuPage {
 	private Locator desktopLink;
 	private Locator pcLink;
 	private Locator pcLinkColor;
+	private Locator pcLinkSize;
+	private Locator MacLink;
+	private Locator MacLinkColor;
 
 	public MegaMenuPage(Page page) {
 		this.page = page;
@@ -81,9 +84,16 @@ public class MegaMenuPage {
 				"#entry_212439 > div > div:nth-child(1) > div > div.caption > div.product-action > button.btn.btn-compare.compare-34");
 
 		// ----Desktop Page---------
-		this.desktopLink = page.locator("#entry_212443 > div > a:nth-child(1)");
+		this.desktopLink = page.locator("//*[@id=\"entry_212443\"]/div/a[1]");
+		// ----Desktop Page pc Link---------
 		this.pcLink = page.locator("#mz-filter-panel-0-4 > div > div:nth-child(1) > div");
 		this.pcLinkColor = page.locator("#mz-filter-panel-0-4 > div > div:nth-child(1) > div > label");
+		this.pcLinkSize = page.locator("#mz-filter-panel-0-6 > div > div:nth-child(2) > div");
+		// ----Desktop Page Mac Link---------
+		this.MacLink = page.locator("#entry_212396 > div > a:nth-child(2) > figure");
+		this.MacLinkColor = page.locator("#mz-filter-panel-0-4 > div > div:nth-child(3) > div");
+		this.pcLinkSize = page.locator("#mz-filter-panel-0-6 > div > div:nth-child(5) > div");
+
 
 	}
 
@@ -330,6 +340,10 @@ public class MegaMenuPage {
 			throw new RuntimeException("desktopLink is not initialized!");
 		}
 
+//		page.navigate("https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=20");
+//		page.waitForLoadState(LoadState.LOAD);
+//		System.out.println("Navigated to: " + page.url());
+
 		desktopLink.click();
 
 		String actualTitleDesktopsPage = page.title();
@@ -350,7 +364,7 @@ public class MegaMenuPage {
 
 		String enteredNumber3 = "4";
 
-		String pcBlueColorItems = page.locator("#entry_212440 > div > div.col-sm-6.text-right").textContent().trim();
+		String pcBlueColorItems = page.locator("#entry_212409 > div").textContent().trim();
 		System.out.println("Total items in PC page in Blue Color:" + pcBlueColorItems);
 
 		// Check if the entered number is included in the retrieved text
@@ -375,6 +389,89 @@ public class MegaMenuPage {
 		// Print the first 4 item titles (or fewer if less than 4 exist)
 		for (int i = 0; i < Math.min(4, count); i++) {
 			System.out.println("Item " + (i + 1) + " Title: " + items.nth(i).textContent().trim());
+
+			// -----------------------------Click Size Button----------------
+
+			pcLinkSize.click();
+
+			Locator itemsM = page.locator("[id^='entry_'] div.caption > h4");
+
+			// Wait for at least one item to appear
+			itemsM.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+			// Get the total count of listed items
+			int countM = itemsM.count();
+			System.out.println("Total Items Found: " + countM);
+
+			// Print the first 4 item titles (or fewer if less than 4 exist)
+			for (int M = 0; M < Math.min(4, countM); M++) {
+				System.out.println("Item " + (M + 1) + " Title: " + itemsM.nth(M).textContent().trim());
+
+			}
+		}
+
+//		#entry_212408 > div > div:nth-child(1) > div > div.caption > h4
+//		#entry_212408 > div > div:nth-child(2) > div > div.caption > h4
+
+	}
+	
+	
+	public void DesktopPageClickMacLink() {
+
+		MacLink.click();
+		String actualTitlePCPage = page.title();
+		System.out.println("Actual title: " + actualTitlePCPage);
+		Assert.assertEquals(actualTitlePCPage, "Mac");
+		System.out.println("Successfully open Mac Page");
+
+		MacLinkColor.click();
+
+		String MacenteredNumberMac = "4";
+
+		String MacRedColorItems = page.locator("#entry_212409 > div").textContent().trim();
+		System.out.println("Total items in Mac page in Red Color:" + MacRedColorItems);
+
+		// Check if the entered number is included in the retrieved text
+		if (MacRedColorItems.contains(MacenteredNumberMac)) {
+			System.out.println("✅ The entered number " + MacenteredNumberMac + " is found in the text: " + MacRedColorItems);
+		} else {
+			System.out.println(
+					"❌ The entered number " + MacenteredNumberMac + " is NOT found in the text: " + MacRedColorItems);
+		}
+		// ---------------------------------------------------------------------------------------------------------
+
+		// Locate all item titles using a common selector
+		Locator itemsMac = page.locator("[id^='entry_'] div.caption > h4");
+
+		// Wait for at least one item to appear
+		itemsMac.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+		// Get the total count of listed items
+		int count = itemsMac.count();
+		System.out.println("Total Items Found: " + count);
+
+		// Print the first 4 item titles (or fewer if less than 4 exist)
+		for (int i = 0; i < Math.min(4, count); i++) {
+			System.out.println("Item " + (i + 1) + " Title: " + itemsMac.nth(i).textContent().trim());
+
+			// -----------------------------Click Size Button----------------
+
+			pcLinkSize.click();
+
+			Locator itemsM = page.locator("[id^='entry_'] div.caption > h4");
+
+			// Wait for at least one item to appear
+			itemsM.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+			// Get the total count of listed items
+			int countM = itemsM.count();
+			System.out.println("Total Items Found: " + countM);
+
+			// Print the first 4 item titles (or fewer if less than 4 exist)
+			for (int M = 0; M < Math.min(4, countM); M++) {
+				System.out.println("Item " + (M + 1) + " Title: " + itemsM.nth(M).textContent().trim());
+
+			}
 		}
 
 //		#entry_212408 > div > div:nth-child(1) > div > div.caption > h4

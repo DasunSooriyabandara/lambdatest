@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="DesktopPageLink"/>
+          <include name="DesktopPageMaclink"/>
         </methods>
       </class> <!-- pomTests.MegaMenumApplePageTC -->
     </classes>
