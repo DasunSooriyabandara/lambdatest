@@ -77,21 +77,21 @@ public class MegaMenumApplePageTC extends PlaywrightConnection {
 		ItemActions.FourActioButtons();
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6, description = "Mega Menu - Apple Page - Desktop Link")
 	public void DesktopPageLink() {
 		MegaMenuPage DesktopInitials = new MegaMenuPage(page);
 		DesktopInitials.DesktopPage();
 
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 7, description = "Mega Menu - Apple Page - Desktop Page - PC Link  ")
 	public void DesktopPagePClink() {
 		MegaMenuPage DesktopPCPage = new MegaMenuPage(page);
 		DesktopPCPage.DesktopPageClickPCLink();
 
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 8, description = "Mega Menu - Apple Page - Desktop Page - Mac Link")
 	public void DesktopPageMaclink() {
 		MegaMenuPage DesktopMacPage = new MegaMenuPage(page);
 		DesktopMacPage.DesktopPageClickMacLink();

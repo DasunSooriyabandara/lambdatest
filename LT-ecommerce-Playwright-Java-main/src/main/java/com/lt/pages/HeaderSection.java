@@ -44,5 +44,9 @@ public class HeaderSection {
 		this.page.locator("//*[@id=\"entry281_216477\"]/div/div/ul/li[1]/a").click();
 	}
 
+	public void clickBlog() {
+		this.AppleMobile().hover();
+		this.page.locator("//*[@id=\"widget-navbar-217834\"]/ul/li[3]").click();
+	}
 	
 }
