@@ -59,6 +59,18 @@ public class BlogTC extends PlaywrightConnection {
 		BlogPage LatestArticles = new BlogPage(page);
 		LatestArticles.LatestArticle();
 	}
+	
+	@Test(priority = 3, description = "Most Viewed Article Section")
+	public void MostViewedArticleSection() {
+		BlogPage MostVArticles = new BlogPage(page);
+		MostVArticles.MostViewedArticle();
+	}
+	
+	@Test(priority = 4, description = "Read more button")
+	public void ReadMoreButtonArticleSection() {
+		BlogPage ReadMorearticles = new BlogPage(page);
+		ReadMorearticles.BusinessArticle();
+	}
 //
 //	@Test(priority = 3)
 //	public void FilterSectionPriceAndSearch() {

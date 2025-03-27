@@ -21,11 +21,18 @@ public class BlogPage {
 	private Locator topic1;
 	private Locator rightArrow;
 	private Locator leftArrow;
-	private Locator price;
-	private Locator ProductCompare;
-	private Locator SortItemName1;
-	private Locator PriceRangeFrom;
-	private Locator Search;
+	private Locator topic2;
+	private Locator rightArrow2;
+	private Locator leftArrow2;
+	private Locator BusinessLink;
+	private Locator topic3;
+	private Locator BusinessArticledetails;
+	private Locator readMore;
+	private Locator article2heading;
+	private Locator BusinessArticledetailsMetadata;
+	private Locator BusinessArticledetailsTitle;
+	private Locator BusinessArticledetailsMetadataRM;
+	private Locator BusinessArticledetailsTitleRM;
 	private Locator plusbutton;
 
 	public BlogPage(Page page) {
@@ -47,11 +54,25 @@ public class BlogPage {
 				"#mz-article-listing-76210960 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-next");
 		this.leftArrow = page.locator(
 				"#mz-article-listing-76210960 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-prev");
-		
-//		this.ProductCompare = page.locator("#entry_212431");
-//		this.SortItemName1 = page.locator("#entry_212439 > div > div:nth-child(1) > div > div.caption > h4");
-//		this.PriceRangeFrom = page
-//				.locator("#mz-filter-panel-0-0 > div > div.d-flex.align-items-center > input:nth-child(1)");
+
+		this.topic2 = page.locator("#mz-article-listing-77210961 > div.mz-tab-listing-header.d-flex");
+		this.rightArrow2 = page.locator(
+				"#mz-article-listing-77210961 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-next");
+		this.leftArrow2 = page.locator(
+				"#mz-article-listing-76210961 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-prev");
+		this.BusinessLink = page.locator("#entry_210963 > div > a:nth-child(1)");
+		this.topic3 = page.locator("#entry_210943");
+		this.BusinessArticledetailsMetadata = page
+				.locator("#entry_210951 > div > div:nth-child(2) > div > div.caption > div");
+		this.BusinessArticledetailsTitle = page
+				.locator("#entry_210951 > div > div:nth-child(2) > div > div.caption > h4");
+
+		this.readMore = page.locator("#entry_210951 > div > div:nth-child(2) > div > div.caption > a");
+		this.article2heading = page.locator("#entry_210903");
+		this.BusinessArticledetailsMetadataRM = page
+				.locator("#entry_210903");
+		this.BusinessArticledetailsTitleRM = page
+				.locator("#entry_210904");
 //		this.Search = page.locator("#mz-filter-panel-0-1 > div > input");
 
 	}
@@ -69,9 +90,8 @@ public class BlogPage {
 		page.waitForTimeout(3000);
 		leftArrow.click();
 		System.out.println("Successfully Scrool the page to left");
-		
+
 		Locator articleNames = page.locator(".swiper-slide .title a");
-		
 
 		// Wait for at least one item to appear
 		articleNames.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
@@ -80,11 +100,74 @@ public class BlogPage {
 		int counAName = articleNames.count();
 		System.out.println("Total Items Found: " + counAName);
 
-		// Print the  item titles (or fewer if less than 4 exist)
+		// Print the item titles (or fewer if less than 4 exist)
 		for (int M = 0; M < Math.min(10, counAName); M++) {
 			System.out.println("Item " + (M + 1) + " Title: " + articleNames.nth(M).textContent().trim());
 
 		}
+	}
 
+	public void MostViewedArticle() {
+		// Assert product title
+		String sectionTitle2 = topic2.textContent().trim();
+		System.out.println("Section Title: " + sectionTitle2);
+		Assert.assertEquals(sectionTitle2, "Most viewed");
+
+		rightArrow2.click();
+		page.waitForTimeout(3000);
+		rightArrow2.click();
+		System.out.println("Successfully Scrool the page to fight");
+		page.waitForTimeout(3000);
+		leftArrow2.click();
+		System.out.println("Successfully Scrool the page to left");
+
+		Locator articleNames2 = page.locator("#mz-article-listing-77210961 > div.mz-tab-listing-content.clearfix");
+
+		// Wait for at least one item to appear
+		articleNames2.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+		// Get the total count of listed items
+		int counAName = articleNames2.count();
+		System.out.println("Total Items Found: " + counAName);
+
+		// Print the item titles (or fewer if less than 4 exist)
+		for (int M = 0; M < Math.min(10, counAName); M++) {
+			System.out.println("Item " + (M + 1) + " Title: " + articleNames2.nth(M).textContent().trim());
+
+		}
+
+	}
+
+	public void BusinessArticle() {
+
+		BusinessLink.click();
+		String sectionTitle3 = topic3.textContent().trim();
+		System.out.println("Section Title: " + sectionTitle3);
+		Assert.assertEquals(sectionTitle3, "Business");
+
+		Locator ReadMore = page.locator("#entry_210945 > div > div");
+		ReadMore.click();
+		System.out.println("Click Read MOre Button Successfully");
+
+		String article2Details = BusinessArticledetailsMetadata.textContent().trim();
+		String article2Details1 = BusinessArticledetailsTitle.textContent().trim();
+		System.out.println(article2Details);
+		System.out.println(article2Details1);
+
+		readMore.click();
+		String BsectionTitle1 = article2heading.textContent().trim();
+		System.out.println("Section Title: " + BsectionTitle1);
+		Assert.assertEquals(BsectionTitle1, "Business");
+
+		
+		String article2DetailsRM = BusinessArticledetailsMetadataRM.textContent().trim();
+		String article2Details1RM = BusinessArticledetailsTitleRM.textContent().trim();
+		System.out.println(article2DetailsRM);
+		System.out.println(article2Details1RM);
+
+		Assert.assertEquals(article2Details, article2DetailsRM);
+		Assert.assertEquals(article2Details1, article2Details1RM);
+		
+		System.out.println("Successfully open read more right article");
 	}
 }
