@@ -5,7 +5,6 @@
     <classes>
       <class name="pomTests.BlogTC">
         <methods>
-          <include name="MostViewedArticleSection"/>
           <include name="setUp"/>
           <include name="ReadMoreButtonArticleSection"/>
           <include name="tearDown"/>

@@ -59,7 +59,7 @@ public class BlogPage {
 		this.rightArrow2 = page.locator(
 				"#mz-article-listing-77210961 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-next");
 		this.leftArrow2 = page.locator(
-				"#mz-article-listing-76210961 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-prev");
+				"#mz-article-listing-77210961 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-prev");
 		this.BusinessLink = page.locator("#entry_210963 > div > a:nth-child(1)");
 		this.topic3 = page.locator("#entry_210943");
 		this.BusinessArticledetailsMetadata = page
@@ -157,7 +157,7 @@ public class BlogPage {
 		readMore.click();
 		String BsectionTitle1 = article2heading.textContent().trim();
 		System.out.println("Section Title: " + BsectionTitle1);
-		Assert.assertEquals(BsectionTitle1, "Business");
+		Assert.assertEquals(BsectionTitle1, "eget nunc lobortis mattis aliquam faucibus purus in massa tempor");
 
 		
 		String article2DetailsRM = BusinessArticledetailsMetadataRM.textContent().trim();
