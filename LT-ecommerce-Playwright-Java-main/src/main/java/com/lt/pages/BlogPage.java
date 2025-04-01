@@ -33,7 +33,12 @@ public class BlogPage {
 	private Locator BusinessArticledetailsTitle;
 	private Locator BusinessArticledetailsMetadataRM;
 	private Locator BusinessArticledetailsTitleRM;
-	private Locator plusbutton;
+	private Locator postCommentBtn;
+	private Locator plpostCommentBtnusbuttonh;
+	private Locator plpostCommentBhtnusbutton;
+	private Locator plpostCommedhntBtnusbutton;
+	private Locator plpostCommehntBtnusbutton;
+	private Locator plpostCommenhtBtnusbutton;
 
 	public BlogPage(Page page) {
 		this.page = page;
@@ -73,6 +78,7 @@ public class BlogPage {
 				.locator("#entry_210903");
 		this.BusinessArticledetailsTitleRM = page
 				.locator("#entry_210904");
+		this.postCommentBtn= page.locator("#entry_210904");
 //		this.Search = page.locator("#mz-filter-panel-0-1 > div > input");
 
 	}
@@ -151,8 +157,8 @@ public class BlogPage {
 
 		String article2Details = BusinessArticledetailsMetadata.textContent().trim();
 		String article2Details1 = BusinessArticledetailsTitle.textContent().trim();
-		System.out.println(article2Details);
-		System.out.println(article2Details1);
+		System.out.println("MetaData list view :" + article2Details);
+		System.out.println("Title list view :" + article2Details1);
 
 		readMore.click();
 		String BsectionTitle1 = article2heading.textContent().trim();
@@ -162,12 +168,29 @@ public class BlogPage {
 		
 		String article2DetailsRM = BusinessArticledetailsMetadataRM.textContent().trim();
 		String article2Details1RM = BusinessArticledetailsTitleRM.textContent().trim();
-		System.out.println(article2DetailsRM);
-		System.out.println(article2Details1RM);
+		System.out.println("MetaData Read More view :" + article2DetailsRM);
+		System.out.println("Title Read More view :" + article2Details1RM);
 
 		Assert.assertEquals(article2Details, article2DetailsRM);
+		System.out.println("Meta Data Equals");
 		Assert.assertEquals(article2Details1, article2Details1RM);
+		System.out.println("Title Equals");
 		
 		System.out.println("Successfully open read more right article");
+	}
+	
+	public void WriteComment() {
+		
+		postCommentBtn.click();
+
+		boolean warning1 = page.locator("#form-comment > div:nth-child(1) > div").isVisible();
+		boolean warning2 = page.locator("#form-comment > div:nth-child(3) > div").isVisible();
+
+		if (warning1 && warning2) {  // Corrected condition using &&
+			System.out.println("passed" + "Warning is visible");
+		} else {
+			System.out.println("failed" +  "Warning is not visible");
+		}
+
 	}
 }

@@ -71,13 +71,13 @@ public class BlogTC extends PlaywrightConnection {
 		BlogPage ReadMorearticles = new BlogPage(page);
 		ReadMorearticles.BusinessArticle();
 	}
-//
-//	@Test(priority = 3)
-//	public void FilterSectionPriceAndSearch() {
-//		MegaMenuPage FilterSection1 = new MegaMenuPage(page);
-//		FilterSection1.FilterSectionPriceNSearch();
-//	}
-//
+
+	@Test(priority = 3, description = "Add a Comment section")
+	public void WriteaCommentSection() {
+		BlogPage AddComment = new BlogPage(page);
+		AddComment.WriteComment();
+	}
+
 //	@Test(priority = 4)
 //	public void FilterSectionAvailability() {
 //		MegaMenuPage FilterSection2 = new MegaMenuPage(page);
