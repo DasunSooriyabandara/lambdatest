@@ -34,9 +34,9 @@ public class BlogPage {
 	private Locator BusinessArticledetailsMetadataRM;
 	private Locator BusinessArticledetailsTitleRM;
 	private Locator postCommentBtn;
-	private Locator plpostCommentBtnusbuttonh;
-	private Locator plpostCommentBhtnusbutton;
-	private Locator plpostCommedhntBtnusbutton;
+	private Locator CommentYourName;
+	private Locator CommentEmail;
+	private Locator CommentYourComment;
 	private Locator plpostCommehntBtnusbutton;
 	private Locator plpostCommenhtBtnusbutton;
 
@@ -75,10 +75,13 @@ public class BlogPage {
 		this.readMore = page.locator("#entry_210951 > div > div:nth-child(2) > div > div.caption > a");
 		this.article2heading = page.locator("#entry_210903");
 		this.BusinessArticledetailsMetadataRM = page
-				.locator("#entry_210903");
-		this.BusinessArticledetailsTitleRM = page
 				.locator("#entry_210904");
-		this.postCommentBtn= page.locator("#entry_210904");
+		this.BusinessArticledetailsTitleRM = page
+				.locator("#entry_210903");
+		this.postCommentBtn = page.locator("#button-comment").first();
+		this.CommentYourName = page.locator("#input-name");
+		this.CommentEmail = page.locator("#input-email");
+		this.CommentYourComment = page.locator("#input-comment");
 //		this.Search = page.locator("#mz-filter-panel-0-1 > div > input");
 
 	}
@@ -181,15 +184,54 @@ public class BlogPage {
 	
 	public void WriteComment() {
 		
-		postCommentBtn.click();
+		
+		Locator postCommentBtn = page.locator("#button-comment");
 
+		
+		
+		if (postCommentBtn.count() > 0) {  // Check if element exists
+		    postCommentBtn.waitFor();
+		    postCommentBtn.click();
+		} else {
+		    System.out.println("Failed: Post Comment button not found.");
+		}
+		
+		postCommentBtn.click();
+		System.out.println("SUcceessfully click post comment button with empty inputs");
+		
+		
 		boolean warning1 = page.locator("#form-comment > div:nth-child(1) > div").isVisible();
 		boolean warning2 = page.locator("#form-comment > div:nth-child(3) > div").isVisible();
 
-		if (warning1 && warning2) {  // Corrected condition using &&
-			System.out.println("passed" + "Warning is visible");
+		if (warning1 || warning2) {  // Corrected condition using &&
+			System.out.println("passed:::" + "Warning is visible");
+//			super.setTestStatus("passed:::" + "Warning is visible");
 		} else {
-			System.out.println("failed" +  "Warning is not visible");
+			System.out.println("failed:::" +  "Warning is not visible");
+//			super.setTestStatus("failed:::" + "Warning is not visible");
+		}
+		
+		
+		CommentYourName.fill("Test Comment");
+		CommentEmail.fill("Test@gmail.com");
+		CommentYourComment.fill("It's like the director belongs to a "
+				+ "religion so he purposely didn't cover the fact that"
+				+ " majority of the world belong or believe in faiths that"
+				+ " stole their teachings from The Egyptians or Sumerians. "
+				+ "Annunaki story makes sense when you factor in that so many "
+				+ "of the things on these ancient tablets turned out to be true "
+				+ "just in the last 30 years. Think about how fast we advanced in "
+				+ "such a short period. I believespecies etc");
+
+		postCommentBtn.click();
+		System.out.println("Click Post Comment BUtton");
+		
+		Boolean successfull = page.locator("#form-comment > div.alert.alert-success.alert-dismissible").isVisible();
+		
+		if (successfull) {  // Corrected condition using &&
+			System.out.println("passed::::" + "Successfully Post the COmment");
+		} else {
+			System.out.println("failed::::" +  " Post Comment Unsuccessfully");
 		}
 
 	}

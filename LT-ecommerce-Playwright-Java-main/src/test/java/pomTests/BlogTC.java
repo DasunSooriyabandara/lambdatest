@@ -72,7 +72,7 @@ public class BlogTC extends PlaywrightConnection {
 		ReadMorearticles.BusinessArticle();
 	}
 
-	@Test(priority = 3, description = "Add a Comment section")
+	@Test(priority = 5, description = "Add a Comment section")
 	public void WriteaCommentSection() {
 		BlogPage AddComment = new BlogPage(page);
 		AddComment.WriteComment();
