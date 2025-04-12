@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dasun\AppData\Local\Temp\testng-eclipse-575398456\testng-customsuite.xml</span>
+                    <span>C:\Users\dasun\AppData\Local\Temp\testng-eclipse--1336986273\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,39 +104,10 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pomTests.BlogTC" class="method navigator-link" hash-for-method="ReadMoreButtonArticleSection">ReadMoreButtonArticleSection</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="pomTests.BlogTC" class="method navigator-link" hash-for-method="LatestArticleSection">LatestArticleSection</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pomTests.BlogTC" class="method navigator-link" hash-for-method="MostViewedArticleSection">MostViewedArticleSection</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pomTests.BlogTC" class="method navigator-link" hash-for-method="WriteaCommentSection">WriteaCommentSection</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pomTests.BlogTC" class="method navigator-link" hash-for-method="openBlogPage">openBlogPage</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -156,18 +127,36 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ReadMoreButtonArticleSection">
-                  </a> <!-- ReadMoreButtonArticleSection -->
-                  <span class="method-name">ReadMoreButtonArticleSection</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [By Jolio Balia - 25 Feb 2019 23850 16 comments] but found [Jolio Balia  16 comments  23850  25 Feb 2019]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-	at org.testng.Assert.assertEquals(Assert.java:122)
-	at org.testng.Assert.assertEquals(Assert.java:629)
-	at org.testng.Assert.assertEquals(Assert.java:639)
-	at com.lt.pages.BlogPage.BusinessArticle(BlogPage.java:177)
-	at pomTests.BlogTC.ReadMoreButtonArticleSection(BlogTC.java:72)
+                  <a name="LatestArticleSection">
+                  </a> <!-- LatestArticleSection -->
+                  <span class="method-name">LatestArticleSection</span>
+                  <div class="stack-trace">com.microsoft.playwright.PlaywrightException: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\server\dispatchers\dispatcher.js:86:36)
+    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\server\dispatchers\dispatcher.js:351:39)
+}
+Call log:
+- waiting for locator(&quot;#mz-article-listing-76210960 &gt; div.mz-tab-listing-header.d-flex&quot;)
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.textContentImpl(FrameImpl.java:818)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$textContent$38(FrameImpl.java:809)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.FrameImpl.textContent(FrameImpl.java:809)
+	at com.microsoft.playwright.impl.LocatorImpl.textContent(LocatorImpl.java:566)
+	at com.microsoft.playwright.Locator.textContent(Locator.java:5051)
+	at com.lt.pages.BlogPage.LatestArticle(BlogPage.java:91)
+	at pomTests.BlogTC.LatestArticleSection(BlogTC.java:61)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -194,62 +183,36 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\stackTrace.js:50:17)
+    at LongStandingScope._race (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\server\dispatchers\dispatcher.js:86:36)
+    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-1787113682263976051\package\lib\server\dispatchers\dispatcher.js:351:39)
+}
+Call log:
+- waiting for locator(&quot;#mz-article-listing-76210960 &gt; div.mz-tab-listing-header.d-flex&quot;)
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 37 more
 
 </div> <!-- stack-trace -->
-                  <em>
-(Read more button)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">pomTests.BlogTC</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="LatestArticleSection">
-                  </a> <!-- LatestArticleSection -->
-                  <span class="method-name">LatestArticleSection</span>
                   <em>
 (Latest Article Section)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="MostViewedArticleSection">
-                  </a> <!-- MostViewedArticleSection -->
-                  <span class="method-name">MostViewedArticleSection</span>
-                  <em>
-(Most Viewed Article Section)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="WriteaCommentSection">
-                  </a> <!-- WriteaCommentSection -->
-                  <span class="method-name">WriteaCommentSection</span>
-                  <em>
-(Add a Comment section)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="openBlogPage">
-                  </a> <!-- openBlogPage -->
-                  <span class="method-name">openBlogPage</span>
-                  <em>
-(Get The titile of Blog Page)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-failed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dasun\AppData\Local\Temp\testng-eclipse-575398456\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dasun\AppData\Local\Temp\testng-eclipse--1336986273\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -258,7 +221,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;pomTests.BlogTC&quot;/&gt;
+      &lt;class name=&quot;pomTests.BlogTC&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;LatestArticleSection&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- pomTests.BlogTC --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -298,32 +265,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'WriteaCommentSection')
+data.setCell(0, 1, 'LatestArticleSection')
 data.setCell(0, 2, 'pomTests.BlogTC')
-data.setCell(0, 3, 88519);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'LatestArticleSection')
-data.setCell(1, 2, 'pomTests.BlogTC')
-data.setCell(1, 3, 10817);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'MostViewedArticleSection')
-data.setCell(2, 2, 'pomTests.BlogTC')
-data.setCell(2, 3, 6269);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'ReadMoreButtonArticleSection')
-data.setCell(3, 2, 'pomTests.BlogTC')
-data.setCell(3, 3, 5133);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'openBlogPage')
-data.setCell(4, 2, 'pomTests.BlogTC')
-data.setCell(4, 3, 1355);
+data.setCell(0, 3, 18503);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 18 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -338,9 +289,22 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">pomTests.BlogTC</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">MostViewedArticleSection</span>
+                <br/>
+                <span class="ignored-method-name">openBlogPage</span>
+                <br/>
+                <span class="ignored-method-name">ReadMoreButtonArticleSection</span>
+                <br/>
+                <span class="ignored-method-name">WriteaCommentSection</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -355,30 +319,14 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">openBlogPage</span>
-                <span class="method-start">11947 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">LatestArticleSection</span>
-                <span class="method-start">13306 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">MostViewedArticleSection</span>
-                <span class="method-start">24126 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">ReadMoreButtonArticleSection</span>
-                <span class="method-start">30397 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">WriteaCommentSection</span>
-                <span class="method-start">35535 ms</span>
+                <span class="method-name">LatestArticleSection</span>
+                <span class="method-start">11723 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">124057 ms</span>
+                <span class="method-start">30236 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

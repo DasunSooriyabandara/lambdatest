@@ -6,7 +6,7 @@
       <class name="pomTests.BlogTC">
         <methods>
           <include name="setUp"/>
-          <include name="ReadMoreButtonArticleSection"/>
+          <include name="LatestArticleSection"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- pomTests.BlogTC -->

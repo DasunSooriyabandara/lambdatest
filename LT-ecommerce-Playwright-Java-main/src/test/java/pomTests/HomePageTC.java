@@ -17,7 +17,7 @@ import com.microsoft.playwright.options.LoadState;
 import base.Driver;
 import base.PlaywrightConnection;
 
-public class BlogTC extends PlaywrightConnection {
+public class HomePageTC extends PlaywrightConnection {
 	private Driver driver;
 	private Page page;
 	BlogPage blogPage;
@@ -38,8 +38,8 @@ public class BlogTC extends PlaywrightConnection {
 		super.closeConnection(driver);
 	}
 
-	@Test(priority = 1, description = "Get The titile of Blog Page")
-	public void openBlogPage() {
+	@Test(priority = 1, description = "Get The titile of Home Page")
+	public void openHomePage() {
 		HeaderSection headerBlog = new HeaderSection(page);
 
 		try {
@@ -47,7 +47,7 @@ public class BlogTC extends PlaywrightConnection {
 
 			String actualTitle = page.title();
 			System.out.println("Actual title: " + actualTitle);
-			Assert.assertEquals(actualTitle, "Blog - Poco theme");
+			Assert.assertEquals(actualTitle, "Your Store");
 
 		} catch (PlaywrightException err) {
 			super.setTestStatus("failed", err.getMessage(), page);

@@ -37,7 +37,7 @@ public class BlogPage {
 	private Locator CommentYourName;
 	private Locator CommentEmail;
 	private Locator CommentYourComment;
-	private Locator plpostCommehntBtnusbutton;
+	private Locator replyBtn;
 	private Locator plpostCommenhtBtnusbutton;
 
 	public BlogPage(Page page) {
@@ -82,7 +82,7 @@ public class BlogPage {
 		this.CommentYourName = page.locator("#input-name");
 		this.CommentEmail = page.locator("#input-email");
 		this.CommentYourComment = page.locator("#input-comment");
-//		this.Search = page.locator("#mz-filter-panel-0-1 > div > input");
+		this.replyBtn = page.locator("#mz-filter-panel-0-1 > div > input");
 
 	}
 
@@ -234,5 +234,12 @@ public class BlogPage {
 			System.out.println("failed::::" +  " Post Comment Unsuccessfully");
 		}
 
+	}
+	
+	public void ReplyForComments() {
+		
+		replyBtn.click();
+		
+		
 	}
 }
