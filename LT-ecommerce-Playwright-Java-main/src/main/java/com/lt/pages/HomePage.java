@@ -18,67 +18,92 @@ import org.testng.asserts.SoftAssert;
 
 public class HomePage {
 	private Page page;
-	private Locator topic1;
-	private Locator rightArrow;
-	
+	private Locator searchCategoryBtn;
+	private Locator selectOption;
+	private Locator searchField;
+	private Locator searchBtn;
+	private Locator optionOne;
+	private Locator comparetBtn;
+	private Locator comparetBtnInsidePage;
+	private Locator productCompareBtn;
 
 	public HomePage(Page page) {
 		this.page = page;
-
-		// Ensure the page is fully loaded
 		page.waitForLoadState(LoadState.NETWORKIDLE);
-
-		// Wait for the topic1 element to appear
-//		page.waitForSelector("#entry_212427", new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
-
-		initLocators(); // Initialize all locators after ensuring page load
+		initLocators();
 	}
 
 	private void initLocators() {
-		this.topic1 = page.locator("#mz-article-listing-76210960 > div.mz-tab-listing-header.d-flex");
+		this.searchCategoryBtn = page.locator("(//button[@type='button'])[1]");
+		this.selectOption = page.locator("(//a[@class='dropdown-item'])[3]");
+		this.searchField = page.locator("(//*[@name='search'])[1]");
+		this.searchBtn = page.locator("(//button[@type='submit'])[1]");
 
-		this.rightArrow = page.locator(
-				"#mz-article-listing-76210960 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-next");
-		this.leftArrow = page.locator(
-				"#mz-article-listing-76210960 > div.mz-tab-listing-header.d-flex > div > div > a.mz-swiper-nav-prev");
+		this.optionOne = page.locator("(//ul[@class='dropdown-menu autocomplete w-100'])[1]/li[1]");
+		this.comparetBtn = page.locator("//*[@id='entry_217823']");
+		this.comparetBtnInsidePage = page.locator("//*[@id='entry_216844']//child::button");
+		this.productCompareBtn = page.locator("#notification-box-top > div > div.toast-body > a");
+	}
 
-		this.topic2 = page.locator("#mz-article-listing-77210961 > div.mz-tab-listing-header.d-flex");
-		
+	public void searchFunction() {
+		String title = page.title();
+		System.out.println("Page Title: " + title);
+		Assert.assertEquals(title, "Your Store");
+
+		searchCategoryBtn.click();
+		page.waitForTimeout(3000);
+		selectOption.click();
+
+		searchField.type("HTC Touch HD");
+		searchBtn.click();
+
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, "Your Store]");
+
+		page.goBack();
+
+		searchCategoryBtn.click();
+		page.waitForTimeout(3000);
+		selectOption.click();
+
+		searchField.type("HTC");
+		optionOne.click();
+
+		String actualTitlesearch = page.title();
+		Assert.assertEquals(actualTitlesearch, "HTC Touch HD");
 
 	}
 
-	public void SearcFucntion() {
-		// Assert product title
-		String sectionTitle1 = topic1.textContent().trim();
-		System.out.println("Section Title: " + sectionTitle1);
-		Assert.assertEquals(sectionTitle1, "Latest Articles");
+	public void Comprison() {
+		comparetBtnInsidePage.click();
+		Locator tonotification1 = page.locator("//*[@id=\"notification-box-top\"]");
 
-		rightArrow.click();
-		page.waitForTimeout(3000);
-		rightArrow.click();
-		System.out.println("Successfully Scrool the page to fight");
-		page.waitForTimeout(3000);
-		leftArrow.click();
-		System.out.println("Successfully Scrool the page to left");
+		// Wait for the notification to appear (optional if it takes time)
+		tonotification1.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		Locator articleNames = page.locator(".swiper-slide .title a");
+		System.out.println("-----------" + tonotification1.textContent() + "---------------");
+		// Assert that the notification is visible
+		Assert.assertTrue(tonotification1.isVisible(), "Notification did not appear!");
 
-		// Wait for at least one item to appear
-		articleNames.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		productCompareBtn.click();
+		System.out.println("Successfully disply notification........ Compair this product");
 
-		// Get the total count of listed items
-		int counAName = articleNames.count();
-		System.out.println("Total Items Found: " + counAName);
+		String actualTitleProdCompare = page.title();
+		System.out.println("Actual title: " + actualTitleProdCompare);
+		Assert.assertEquals(actualTitleProdCompare, "Product Comparison");
 
-		// Print the item titles (or fewer if less than 4 exist)
-		for (int M = 0; M < Math.min(10, counAName); M++) {
-			System.out.println("Item " + (M + 1) + " Title: " + articleNames.nth(M).textContent().trim());
-
+		Locator SuccessNotificstions = page.locator("#product-compare > div.alert.alert-success.alert-dismissible");
 		
-	}
 
-	
-		
-		
+		// Wait for the notification to appear (optional if it takes time)
+		SuccessNotificstions.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+		System.out.println("-----------" + SuccessNotificstions.textContent() + "---------------");
+		// Assert that the notification is visible
+		Assert.assertTrue(SuccessNotificstions.isVisible(), "Notification did not appear!");
+
+		System.out.println("Successfully disply notification Compair this product");
+
 	}
 }

@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.lt.pages.BlogPage;
 import com.lt.pages.HeaderSection;
+import com.lt.pages.HomePage;
 import com.lt.pages.MegaMenuPage;
 import com.lt.pages.ModulesPage;
 import com.lt.pages.ProductOverviewPage;
@@ -20,7 +21,10 @@ import base.PlaywrightConnection;
 public class HomePageTC extends PlaywrightConnection {
 	private Driver driver;
 	private Page page;
-	BlogPage blogPage;
+	
+	HeaderSection headerSection;
+	HomePage homePage;
+	HomePage compareProds;
 
 	@BeforeClass
 	public void setUp() throws Exception {
@@ -40,10 +44,10 @@ public class HomePageTC extends PlaywrightConnection {
 
 	@Test(priority = 1, description = "Get The titile of Home Page")
 	public void openHomePage() {
-		HeaderSection headerBlog = new HeaderSection(page);
+		headerSection = new HeaderSection(page);
 
 		try {
-			headerBlog.clickBlog();
+			headerSection.clickHome();
 
 			String actualTitle = page.title();
 			System.out.println("Actual title: " + actualTitle);
@@ -55,29 +59,30 @@ public class HomePageTC extends PlaywrightConnection {
 		}
 	}
 
-	@Test(priority = 2, description = "Latest Article Section")
-	public void LatestArticleSection() {
-		blogPage = new BlogPage(page);
-		blogPage.LatestArticle();
+	@Test(priority = 2, description = "Search Bar actions")
+	public void SearchBarActions() {
+		homePage = new HomePage(page);
+		homePage.searchFunction();
 	}
 	
-	@Test(priority = 3, description = "Most Viewed Article Section")
-	public void MostViewedArticleSection() {
-		BlogPage MostVArticles = new BlogPage(page);
-		MostVArticles.MostViewedArticle();
+	@Test(priority = 3, description = "Compare products")
+	public void ProductCompare() {
+		
+		compareProds = new HomePage(page);
+		compareProds.Comprison();
 	}
-	
-	@Test(priority = 4, description = "Read more button")
-	public void ReadMoreButtonArticleSection() {
-		BlogPage ReadMorearticles = new BlogPage(page);
-		ReadMorearticles.BusinessArticle();
-	}
-
-	@Test(priority = 5, description = "Add a Comment section")
-	public void WriteaCommentSection() {
-		BlogPage AddComment = new BlogPage(page);
-		AddComment.WriteComment();
-	}
+//	
+//	@Test(priority = 4, description = "Read more button")
+//	public void ReadMoreButtonArticleSection() {
+//		BlogPage ReadMorearticles = new BlogPage(page);
+//		ReadMorearticles.BusinessArticle();
+//	}
+//
+//	@Test(priority = 5, description = "Add a Comment section")
+//	public void WriteaCommentSection() {
+//		BlogPage AddComment = new BlogPage(page);
+//		AddComment.WriteComment();
+//	}
 
 //	@Test(priority = 4)
 //	public void FilterSectionAvailability() {
