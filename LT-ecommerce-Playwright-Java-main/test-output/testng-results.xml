@@ -1,163 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="1" failed="2" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-14T00:10:01 IST" name="Default suite" finished-at="2025-04-14T00:10:55 IST" duration-ms="54084">
+  <suite started-at="2025-04-14T22:44:27 IST" name="Default suite" finished-at="2025-04-14T22:45:03 IST" duration-ms="36029">
     <groups>
     </groups>
-    <test started-at="2025-04-14T00:10:01 IST" name="Default test" finished-at="2025-04-14T00:10:55 IST" duration-ms="54084">
+    <test started-at="2025-04-14T22:44:27 IST" name="Default test" finished-at="2025-04-14T22:45:03 IST" duration-ms="36029">
       <class name="pomTests.HomePageTC">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T00:10:01 IST" name="setUp" finished-at="2025-04-14T00:10:13 IST" duration-ms="11961" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T22:44:27 IST" name="setUp" finished-at="2025-04-14T22:44:38 IST" duration-ms="10489" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="openHomePage()[pri:1, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T00:10:13 IST" name="openHomePage" description="Get The titile of Home Page" finished-at="2025-04-14T00:10:14 IST" duration-ms="1282" status="PASS">
+        <test-method signature="openHomePage()[pri:1, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T22:44:38 IST" name="openHomePage" description="Get The titile of Home Page" finished-at="2025-04-14T22:44:38 IST" duration-ms="798" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openHomePage -->
-        <test-method signature="SearchBarActions()[pri:2, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T00:10:14 IST" name="SearchBarActions" description="Search Bar actions" finished-at="2025-04-14T00:10:21 IST" duration-ms="6888" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [Your Store]] but found [Search - HTC Touch HD]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Your Store]] but found [Search - HTC Touch HD]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:629)
-at org.testng.Assert.assertEquals(Assert.java:639)
-at com.lt.pages.HomePage.searchFunction(HomePage.java:62)
-at pomTests.HomePageTC.SearchBarActions(HomePageTC.java:65)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="SearchBarActions()[pri:2, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T22:44:38 IST" name="SearchBarActions" description="Search Bar actions" finished-at="2025-04-14T22:44:51 IST" duration-ms="12780" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchBarActions -->
-        <test-method signature="ProductCompare()[pri:3, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T00:10:21 IST" name="ProductCompare" description="Compare products" finished-at="2025-04-14T00:10:54 IST" duration-ms="33549" status="FAIL">
-          <exception class="com.microsoft.playwright.TimeoutError">
-            <message>
-              <![CDATA[Error {
-  message='Timeout 30000ms exceeded.
-  name='TimeoutError
-  stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator("//*[@id='entry_216844']//child::button")
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[com.microsoft.playwright.TimeoutError: Error {
-  message='Timeout 30000ms exceeded.
-  name='TimeoutError
-  stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator("//*[@id='entry_216844']//child::button")
-
-at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
-at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
-at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
-at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
-at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:140)
-at com.microsoft.playwright.Locator.click(Locator.java:2348)
-at com.lt.pages.HomePage.Comprison(HomePage.java:79)
-at pomTests.HomePageTC.ProductCompare(HomePageTC.java:72)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message='Timeout 30000ms exceeded.
-  name='TimeoutError
-  stack='TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-17766340621176687592\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator("//*[@id='entry_216844']//child::button")
-
-at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:252)
-at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-... 39 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- com.microsoft.playwright.TimeoutError -->
+        <test-method signature="ProductCompare()[pri:3, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T22:44:51 IST" name="ProductCompare" description="Compare products" finished-at="2025-04-14T22:45:03 IST" duration-ms="11596" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProductCompare -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T00:10:54 IST" name="tearDown" finished-at="2025-04-14T00:10:55 IST" duration-ms="370" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@1aa7ecca]" started-at="2025-04-14T22:45:03 IST" name="tearDown" finished-at="2025-04-14T22:45:03 IST" duration-ms="331" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
