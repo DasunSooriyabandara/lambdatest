@@ -1,5 +1,7 @@
 package com.lt.pages;
 
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import org.testng.asserts.SoftAssert;
 
@@ -28,9 +30,11 @@ public class HomePage {
 	private Locator productCompareBtn;
 	private Locator carroselArrow;
 	private Locator carroselImage;
+	private Browser browser;
 
-	public HomePage(Page page) {
+	public HomePage(Page page, Browser browser) {
 		this.page = page;
+		this.browser = browser; // Save it for later
 		page.waitForLoadState(LoadState.NETWORKIDLE);
 		initLocators();
 	}
@@ -50,7 +54,7 @@ public class HomePage {
 		this.productCompareBtn = page.locator("#notification-box-top > div > div.toast-body > a");
 		
 		
-		this.carroselArrow = page.locator("(//span[@class='carousel-control-next-icon'])[1]");
+		this.carroselArrow = page.locator("(//*[@class='carousel-control-next'])[1]");
 		this.carroselImage = page.locator("(//div[@class='carousel-item active'])[1]");
 		//this.carroselArrow = page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
 				
@@ -140,24 +144,58 @@ public class HomePage {
 	}
 	
 	public void BannerOptions() {
-		
-		carroselArrow.click();
-		
-		
-		// Extract the URL from the button using JavaScript
-		String targetUrl = (String) page.evaluate("() => document.querySelector('button#yourButtonId').getAttribute('onclick')");
-		// OR if the button triggers a link behind the scenes, get that URL instead
 
-		// Open a new page (tab)
-		Page newTab = page.context().newPage();
-		newTab.navigate(targetUrl);
+		// 1. Locate the carousel image (you can use a specific one if needed)
+		Locator carroselImage = page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
 
-		// Now interact with the new tab
-		System.out.println("Opened URL in new tab: " + newTab.url());
+		// 2. Wait until the image is visible
+		carroselImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		
+		// 3. Extract the image src attribute
+		String carroselimageURL = carroselImage.getAttribute("src");
+		System.out.println("Image URL: " + carroselimageURL);
+
+		Browser browser = null;
+		// 4. Use browser to create a brand new context (isolated tab)
+		BrowserContext newContext = browser.newContext();  // <== browser should be passed to the class
+		Page newPage = newContext.newPage();
+
+		// 5. Navigate to the extracted URL
+		newPage.navigate(carroselimageURL);
+		System.out.println("Opened URL in new tab: " + newPage.url());
+
+		// 6. Interact back on original page if needed
 		carroselImage.click();
-		
-		
+
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, "iPhone");
+
+		page.goBack();
 	}
+
+	
+	public void BannerImages() {
+
+		// 1. Locate the banner image
+		Locator bannerImage = page.locator("//*[@title='Lumix S Series From Panasonic']");
+
+		// 2. Get the image source URL
+		String imageURL = bannerImage.getAttribute("src");
+		System.out.println("Image URL: " + imageURL);
+
+		Browser browser = null;
+		// 3. Use browser to create a brand new context (like a fresh incognito session)
+		BrowserContext newContext = browser.newContext();
+
+		// 4. Open a new page in that context
+		Page newPage = newContext.newPage();
+
+		// 5. Navigate to the image URL
+		newPage.navigate(imageURL);
+
+		// 6. Interact if needed
+		System.out.println("Opened image in new tab: " + newPage.url());
+	}
+
 }

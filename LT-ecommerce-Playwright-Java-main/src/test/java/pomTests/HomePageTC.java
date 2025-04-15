@@ -11,6 +11,7 @@ import com.lt.pages.HomePage;
 import com.lt.pages.MegaMenuPage;
 import com.lt.pages.ModulesPage;
 import com.lt.pages.ProductOverviewPage;
+import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.LoadState;
@@ -25,6 +26,8 @@ public class HomePageTC extends PlaywrightConnection {
 	HeaderSection headerSection;
 	HomePage homePage;
 	HomePage compareProds;
+	HomePage bannerImage;
+	HomePage twoImages;
 
 	@BeforeClass
 	public void setUp() throws Exception {
@@ -61,28 +64,29 @@ public class HomePageTC extends PlaywrightConnection {
 
 	@Test(priority = 2, description = "Search Bar actions")
 	public void SearchBarActions() {
-		homePage = new HomePage(page);
+		homePage = new HomePage(page, null);
 		homePage.searchFunction();
 	}
 	
 	@Test(priority = 3, description = "Compare products")
 	public void ProductCompare() {
 		
-		compareProds = new HomePage(page);
+		compareProds = new HomePage(page, null);
 		compareProds.Comprison();
 	}
-//	
-//	@Test(priority = 4, description = "Read more button")
-//	public void ReadMoreButtonArticleSection() {
-//		BlogPage ReadMorearticles = new BlogPage(page);
-//		ReadMorearticles.BusinessArticle();
-//	}
-//
-//	@Test(priority = 5, description = "Add a Comment section")
-//	public void WriteaCommentSection() {
-//		BlogPage AddComment = new BlogPage(page);
-//		AddComment.WriteComment();
-//	}
+	
+	@Test(priority = 4, description = "Banner options")
+	public void BannerImageOpenNewTab() {
+		Browser browser = null;
+		bannerImage  = new HomePage(page, browser);
+		bannerImage.BannerOptions();
+	}
+
+	@Test(priority = 5, description = "Two images upper top trending catagories")
+	public void TwoImages() {
+		twoImages = new HomePage(page, null);
+		twoImages.BannerImages();
+	}
 
 //	@Test(priority = 4)
 //	public void FilterSectionAvailability() {
