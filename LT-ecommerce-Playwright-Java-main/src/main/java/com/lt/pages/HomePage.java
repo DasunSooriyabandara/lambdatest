@@ -144,58 +144,64 @@ public class HomePage {
 	}
 	
 	public void BannerOptions() {
+	    // Locate the actual <img> inside the active carousel item
+	    Locator carroselImage = page.locator("(//div[starts-with(@class,'carousel-item') and contains(@class, 'active')]//img)[1]");
 
-		// 1. Locate the carousel image (you can use a specific one if needed)
-		Locator carroselImage = page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
+	    // Wait until the image is visible
+	    carroselImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		// 2. Wait until the image is visible
-		carroselImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+	    // Extract the image src attribute
+	    String carroselimageURL = carroselImage.getAttribute("src");
+	    System.out.println("Image URL: " + carroselimageURL);
 
-		// 3. Extract the image src attribute
-		String carroselimageURL = carroselImage.getAttribute("src");
-		System.out.println("Image URL: " + carroselimageURL);
+	    // Ensure the URL is not null
+	    Assert.assertNotNull(carroselimageURL, "Image URL is null");
 
-		Browser browser = null;
-		// 4. Use browser to create a brand new context (isolated tab)
-		BrowserContext newContext = browser.newContext();  // <== browser should be passed to the class
-		Page newPage = newContext.newPage();
+	    // Open a new browser context
+//	    BrowserContext newContext = browser.newContext();
+//	    Page newPage = newContext.newPage();
+//
+//	    // Navigate to the extracted image URL
+//	    newPage.navigate(carroselimageURL);
+	    System.out.println("Opened URL in new tab: " + carroselimageURL);
 
-		// 5. Navigate to the extracted URL
-		newPage.navigate(carroselimageURL);
-		System.out.println("Opened URL in new tab: " + newPage.url());
+	    // Go back and verify title
+	    carroselImage.click();
 
-		// 6. Interact back on original page if needed
-		carroselImage.click();
+	    String actualTitle = page.title();
+	    System.out.println("Actual title: " + actualTitle);
+	    Assert.assertEquals(actualTitle, "iPhone");
 
-		String actualTitle = page.title();
-		System.out.println("Actual title: " + actualTitle);
-		Assert.assertEquals(actualTitle, "iPhone");
-
-		page.goBack();
+	    page.goBack();
 	}
+
 
 	
 	public void BannerImages() {
+	    // Locate the <img> tag inside the banner
+	    Locator bannerImage = page.locator("//*[@title='Lumix S Series From Panasonic']//img");
 
-		// 1. Locate the banner image
-		Locator bannerImage = page.locator("//*[@title='Lumix S Series From Panasonic']");
+	    bannerImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		// 2. Get the image source URL
-		String imageURL = bannerImage.getAttribute("src");
-		System.out.println("Image URL: " + imageURL);
+	    String imageURL = bannerImage.getAttribute("src");
+	    System.out.println("Image URL: " + imageURL);
 
-		Browser browser = null;
-		// 3. Use browser to create a brand new context (like a fresh incognito session)
-		BrowserContext newContext = browser.newContext();
-
-		// 4. Open a new page in that context
-		Page newPage = newContext.newPage();
-
-		// 5. Navigate to the image URL
-		newPage.navigate(imageURL);
-
-		// 6. Interact if needed
-		System.out.println("Opened image in new tab: " + newPage.url());
+	    if (imageURL != null) {
+	    	BrowserContext newContext = page.context().browser().newContext();
+	        Page newPage = newContext.newPage();
+	        newPage.navigate(imageURL);
+	        System.out.println("Opened image in new tab: " + newPage.url());
+	    } else {
+	        System.out.println("Failed to extract image URL.");
+	    }
+	    
+	    String actualTitle = page.title();
+	    System.out.println("Actual title: " + actualTitle);
+	    Assert.assertEquals(actualTitle, "middle-banner-1-580x234.webp (580×234)");
+	    
+	    
 	}
+
+
 
 }

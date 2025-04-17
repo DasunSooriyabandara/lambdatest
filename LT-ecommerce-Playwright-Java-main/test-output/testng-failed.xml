@@ -7,7 +7,6 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="BannerImageOpenNewTab"/>
           <include name="TwoImages"/>
         </methods>
       </class> <!-- pomTests.HomePageTC -->

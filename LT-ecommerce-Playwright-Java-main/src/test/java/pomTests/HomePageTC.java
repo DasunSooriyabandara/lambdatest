@@ -77,13 +77,14 @@ public class HomePageTC extends PlaywrightConnection {
 	
 	@Test(priority = 4, description = "Banner options")
 	public void BannerImageOpenNewTab() {
-		Browser browser = null;
-		bannerImage  = new HomePage(page, browser);
+		
+		bannerImage  = new HomePage(page, null);
 		bannerImage.BannerOptions();
 	}
 
 	@Test(priority = 5, description = "Two images upper top trending catagories")
 	public void TwoImages() {
+		
 		twoImages = new HomePage(page, null);
 		twoImages.BannerImages();
 	}
