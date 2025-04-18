@@ -202,6 +202,10 @@ public class HomePage {
 	    
 	}
 
+	public void TopTrendCategory() {
+		
+		
+	}
 
 
 }
