@@ -31,6 +31,10 @@ public class HomePage {
 	private Locator carroselArrow;
 	private Locator carroselImage;
 	private Browser browser;
+	private Locator topTrendTopic;
+	private Locator swipBtnNext;
+	private Locator swipBtnPrew;
+	private Locator camersLink;
 
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
@@ -57,6 +61,11 @@ public class HomePage {
 		this.carroselArrow = page.locator("(//*[@class='carousel-control-next'])[1]");
 		this.carroselImage = page.locator("(//div[@class='carousel-item active'])[1]");
 		//this.carroselArrow = page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
+		this.topTrendTopic = page.locator("//*[@id='entry_217969']");
+		this.swipBtnNext = page.locator("(//a[@class='swiper-button-next'])[1]");
+		this.swipBtnPrew = page.locator("(//a[@class='swiper-button-prev'])[1]");
+		this.camersLink = page.locator("//*[@aria-label='7 / 8']//child::a");
+		
 				
 	}
 
@@ -204,7 +213,34 @@ public class HomePage {
 
 	public void TopTrendCategory() {
 		
+		String Topic = topTrendTopic.textContent().trim();
+		Assert.assertEquals(Topic, "Top Trending Categories");
 		
+		swipBtnNext.click();
+		swipBtnPrew.click();
+		swipBtnNext.click();
+		
+
+		 
+
+		 camersLink.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+		    String imageURL = camersLink.getAttribute("href");
+		    System.out.println("Image URL: " + imageURL);
+
+		    if (imageURL != null) {
+		    	BrowserContext newContext = page.context().browser().newContext();
+		        Page newPage = newContext.newPage();
+		        newPage.navigate(imageURL);
+		        System.out.println("Opened image in new tab: " + newPage.url());
+		    } else {
+		        System.out.println("Failed to extract image URL.");
+		    }
+		    
+		    String actualTitle = page.title();
+		    System.out.println("Actual title: " + actualTitle);
+		    Assert.assertEquals(actualTitle, "Cameras");
+		    
 	}
 
 

@@ -1,47 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
+<testng-results ignored="5" total="6" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-18T23:16:33 IST" name="Default suite" finished-at="2025-04-18T23:17:23 IST" duration-ms="49433">
+  <suite started-at="2025-04-19T23:59:43 IST" name="Default suite" finished-at="2025-04-20T00:00:40 IST" duration-ms="57151">
     <groups>
     </groups>
-    <test started-at="2025-04-18T23:16:33 IST" name="Default test" finished-at="2025-04-18T23:17:23 IST" duration-ms="49433">
+    <test started-at="2025-04-19T23:59:43 IST" name="Default test" finished-at="2025-04-20T00:00:40 IST" duration-ms="57151">
       <class name="pomTests.HomePageTC">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:16:33 IST" name="setUp" finished-at="2025-04-18T23:16:50 IST" duration-ms="16583" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@515aebb0]" started-at="2025-04-19T23:59:43 IST" name="setUp" finished-at="2025-04-20T00:00:06 IST" duration-ms="23376" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="openHomePage()[pri:1, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:16:50 IST" name="openHomePage" description="Get The titile of Home Page" finished-at="2025-04-18T23:16:51 IST" duration-ms="816" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openHomePage -->
-        <test-method signature="SearchBarActions()[pri:2, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:16:51 IST" name="SearchBarActions" description="Search Bar actions" finished-at="2025-04-18T23:17:05 IST" duration-ms="14383" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchBarActions -->
-        <test-method signature="ProductCompare()[pri:3, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:17:05 IST" name="ProductCompare" description="Compare products" finished-at="2025-04-18T23:17:16 IST" duration-ms="11414" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProductCompare -->
-        <test-method signature="BannerImageOpenNewTab()[pri:4, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:17:16 IST" name="BannerImageOpenNewTab" description="Banner options" finished-at="2025-04-18T23:17:20 IST" duration-ms="3097" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BannerImageOpenNewTab -->
-        <test-method signature="TwoImages()[pri:5, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:17:20 IST" name="TwoImages" description="Two images upper top trending catagories" finished-at="2025-04-18T23:17:22 IST" duration-ms="2667" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="TopTrendCategorySection()[pri:4, instance:pomTests.HomePageTC@515aebb0]" started-at="2025-04-20T00:00:06 IST" name="TopTrendCategorySection" description="Top Trending Category " finished-at="2025-04-20T00:00:39 IST" duration-ms="33177" status="FAIL">
+          <exception class="com.microsoft.playwright.TimeoutError">
             <message>
-              <![CDATA[expected [middle-banner-1-580x234.webp (580×234)] but found [Your Store]]]>
+              <![CDATA[Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
+    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
+    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
+    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
+    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
+}
+Call log:
+- waiting for locator("xpath=(//a[@class='swiper-button-next'])[1]")
+-   locator resolved to <a tabindex="0" role="button" aria-disabled="false"…>…</a>
+- attempting click action
+-   waiting for element to be visible, enabled and stable
+-     element is not visible - waiting...
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [middle-banner-1-580x234.webp (580×234)] but found [Your Store]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:629)
-at org.testng.Assert.assertEquals(Assert.java:639)
-at com.lt.pages.HomePage.BannerImages(HomePage.java:200)
-at pomTests.HomePageTC.TwoImages(HomePageTC.java:89)
+              <![CDATA[com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
+    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
+    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
+    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
+    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
+}
+Call log:
+- waiting for locator("xpath=(//a[@class='swiper-button-next'])[1]")
+-   locator resolved to <a tabindex="0" role="button" aria-disabled="false"…>…</a>
+- attempting click action
+-   waiting for element to be visible, enabled and stable
+-     element is not visible - waiting...
+
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
+at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:140)
+at com.microsoft.playwright.Locator.click(Locator.java:2348)
+at com.lt.pages.HomePage.TopTrendCategory(HomePage.java:219)
+at pomTests.HomePageTC.TopTrendCategorySection(HomePageTC.java:96)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -68,13 +91,34 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
+    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
+    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
+    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
+    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
+}
+Call log:
+- waiting for locator("xpath=(//a[@class='swiper-button-next'])[1]")
+-   locator resolved to <a tabindex="0" role="button" aria-disabled="false"…>…</a>
+- attempting click action
+-   waiting for element to be visible, enabled and stable
+-     element is not visible - waiting...
+
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:252)
+at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+... 39 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- com.microsoft.playwright.TimeoutError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TwoImages -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@5876a9af]" started-at="2025-04-18T23:17:22 IST" name="tearDown" finished-at="2025-04-18T23:17:23 IST" duration-ms="420" status="PASS">
+        </test-method> <!-- TopTrendCategorySection -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@515aebb0]" started-at="2025-04-20T00:00:39 IST" name="tearDown" finished-at="2025-04-20T00:00:40 IST" duration-ms="538" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

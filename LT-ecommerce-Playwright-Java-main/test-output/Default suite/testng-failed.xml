@@ -5,9 +5,9 @@
     <classes>
       <class name="pomTests.HomePageTC">
         <methods>
+          <include name="TopTrendCategorySection"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="TwoImages"/>
         </methods>
       </class> <!-- pomTests.HomePageTC -->
     </classes>
