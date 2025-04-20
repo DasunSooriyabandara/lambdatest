@@ -35,6 +35,11 @@ public class HomePage {
 	private Locator swipBtnNext;
 	private Locator swipBtnPrew;
 	private Locator camersLink;
+	private Locator topProducts;
+	private Locator nextArrowTP;
+	private Locator productTP;
+	private Locator addToCart;
+	private Locator successNoti;
 
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
@@ -65,8 +70,12 @@ public class HomePage {
 		this.swipBtnNext = page.locator("(//a[@class='swiper-button-next'])[1]");
 		this.swipBtnPrew = page.locator("(//a[@class='swiper-button-prev'])[1]");
 		this.camersLink = page.locator("//*[@aria-label='7 / 8']//child::a");
-		
-				
+		this.camersLink = page.locator("//*[@id='entry_217978']");
+		this.nextArrowTP = page.locator("(//*[@class='swiper-button-next'])[1]");
+		this.productTP = page.locator("//a[@id='mz-product-listing-image-37217979-0-4']");
+		this.addToCart = page.locator("(//*[@title='Add to Cart'])[5]");
+		this.topProducts = page.locator("//*[@id='entry_217978']");
+		this.successNoti = page.locator("//*[@id='notification-box-top']");
 	}
 
 	public void searchFunction() {
@@ -243,5 +252,47 @@ public class HomePage {
 		    
 	}
 
+	public void TopProductsSection() {
+		
+		String TopicTP = topProducts.textContent().trim();
+		Assert.assertEquals(TopicTP, "Top Products");
+		
+		nextArrowTP.click();
+		System.out.println("Click right arrow");
+		
+		productTP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		
+		productTP.hover();
+		addToCart.click();
+		
+		Boolean NotiAvailbility = successNoti.isVisible();
+		if(NotiAvailbility) {
+			System.out.println("OPen Addto Cart Notification Successfully");
+		}else {
+			System.out.println("No Notification Opens for click Add To Cart");
+		}
+		
+		Assert.assertTrue(successNoti.isVisible(), "Add to Cart notification should be visible.");
+
+		
+		
+		productTP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+
+	    String imageURL = productTP.getAttribute("href");
+	    System.out.println("Image URL: " + imageURL);
+
+	    if (imageURL != null) {
+	    	BrowserContext newContext = page.context().browser().newContext();
+	        Page newPage = newContext.newPage();
+	        newPage.navigate(imageURL);
+	        System.out.println("Opened image in new tab: " + newPage.url());
+	    } else {
+	        System.out.println("Failed to extract image URL.");
+	    }
+	    
+	    String actualTitle = page.title();
+	    System.out.println("Actual title: " + actualTitle);
+	    Assert.assertEquals(actualTitle, " HTC Touch HD");
+	}
 
 }

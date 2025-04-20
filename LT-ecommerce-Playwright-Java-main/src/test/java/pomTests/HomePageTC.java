@@ -29,6 +29,7 @@ public class HomePageTC extends PlaywrightConnection {
 	HomePage bannerImage;
 	HomePage twoImages;
 	HomePage topTrending;
+	HomePage TopProducts;
 
 	@BeforeClass
 	public void setUp() throws Exception {
@@ -95,12 +96,12 @@ public class HomePageTC extends PlaywrightConnection {
 		topTrending  = new HomePage(page, null);
 		topTrending.TopTrendCategory();
 	}
-//
-//	@Test(priority = 5)
-//	public void ActionsItem() {
-//		MegaMenuPage ItemActions = new MegaMenuPage(page);
-//		ItemActions.FourActioButtons();
-//	}
+
+	@Test(priority = 5, description = "Top Products Section Carrosel ")
+	public void TopProductsCarosel() {
+		TopProducts  = new HomePage(page, null);
+		TopProducts.TopProductsSection();
+	}
 //
 //	@Test(priority = 6, description = "Mega Menu - Apple Page - Desktop Link")
 //	public void DesktopPageLink() {

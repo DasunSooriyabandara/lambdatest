@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Apr 19 23:59:43 IST 2025</td>
+<td>Started on:</td><td>Mon Apr 21 00:03:14 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>57 seconds (57151 ms)</td>
+<tr><td>Total time:</td><td>15 seconds (15772 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,39 +75,13 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='pomTests.HomePageTC.TopTrendCategorySection()'><b>TopTrendCategorySection</b><br>Test class: pomTests.HomePageTC<br>Test method: Top Trending Category </td>
-<td><div><pre>com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator(&quot;xpath=(//a[@class=&apos;swiper-button-next&apos;])[1]&quot;)
--   locator resolved to &lt;a tabindex=&quot;0&quot; role=&quot;button&quot; aria-disabled=&quot;false&quot;…&gt;…&lt;/a&gt;
-- attempting click action
--   waiting for element to be visible, enabled and stable
--     element is not visible - waiting...
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:140)
-	at com.microsoft.playwright.Locator.click(Locator.java:2348)
-	at com.lt.pages.HomePage.TopTrendCategory(HomePage.java:219)
-	at pomTests.HomePageTC.TopTrendCategorySection(HomePageTC.java:96)
+<td title='pomTests.HomePageTC.TopProductsCarosel()'><b>TopProductsCarosel</b><br>Test class: pomTests.HomePageTC<br>Test method: Top Products Section Carrosel </td>
+<td><div><pre>java.lang.AssertionError: Add to Cart notification should be visible. expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at com.lt.pages.HomePage.TopProductsSection(HomePage.java:275)
+	at pomTests.HomePageTC.TopProductsCarosel(HomePageTC.java:103)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -134,60 +108,13 @@ Call log:
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator(&quot;xpath=(//a[@class=&apos;swiper-button-next&apos;])[1]&quot;)
--   locator resolved to &lt;a tabindex=&quot;0&quot; role=&quot;button&quot; aria-disabled=&quot;false&quot;…&gt;…&lt;/a&gt;
-- attempting click action
--   waiting for element to be visible, enabled and stable
--     element is not visible - waiting...
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:252)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	... 39 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace2038105753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2038105753'><pre>com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator(&quot;xpath=(//a[@class=&apos;swiper-button-next&apos;])[1]&quot;)
--   locator resolved to &lt;a tabindex=&quot;0&quot; role=&quot;button&quot; aria-disabled=&quot;false&quot;…&gt;…&lt;/a&gt;
-- attempting click action
--   waiting for element to be visible, enabled and stable
--     element is not visible - waiting...
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:129)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:140)
-	at com.microsoft.playwright.Locator.click(Locator.java:2348)
-	at com.lt.pages.HomePage.TopTrendCategory(HomePage.java:219)
-	at pomTests.HomePageTC.TopTrendCategorySection(HomePageTC.java:96)
+</pre></div><a href='#' onClick='toggleBox("stack-trace110651474", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace110651474'><pre>java.lang.AssertionError: Add to Cart notification should be visible. expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at com.lt.pages.HomePage.TopProductsSection(HomePage.java:275)
+	at pomTests.HomePageTC.TopProductsCarosel(HomePageTC.java:103)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -214,30 +141,9 @@ Call log:
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\progress.js:87:26)
-    at Frame.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\frames.js:995:23)
-    at FrameDispatcher.click (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\frameDispatcher.js:152:30)
-    at FrameDispatcher._handleCommand (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:84:40)
-    at DispatcherConnection.dispatch (C:\Users\dasun\AppData\Local\Temp\playwright-java-16932977519341487049\package\lib\server\dispatchers\dispatcher.js:351:39)
-}
-Call log:
-- waiting for locator(&quot;xpath=(//a[@class=&apos;swiper-button-next&apos;])[1]&quot;)
--   locator resolved to &lt;a tabindex=&quot;0&quot; role=&quot;button&quot; aria-disabled=&quot;false&quot;…&gt;…&lt;/a&gt;
-- attempting click action
--   waiting for element to be visible, enabled and stable
--     element is not visible - waiting...
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:252)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:209)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	... 39 more
 </pre></div></td>
-<td>33</td>
-<td>pomTests.HomePageTC@515aebb0</td></tr>
+<td>5</td>
+<td>pomTests.HomePageTC@dd8ba08</td></tr>
 </table><p>
 </body>
 </html>
