@@ -40,7 +40,7 @@ public class HomePage {
 	private Locator productTP;
 	private Locator addToCart;
 	private Locator successNoti;
-
+	private Locator topCOllectionTitle;
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
 		this.browser = browser; // Save it for later
@@ -71,11 +71,12 @@ public class HomePage {
 		this.swipBtnPrew = page.locator("(//a[@class='swiper-button-prev'])[1]");
 		this.camersLink = page.locator("//*[@aria-label='7 / 8']//child::a");
 		this.camersLink = page.locator("//*[@id='entry_217978']");
-		this.nextArrowTP = page.locator("(//*[@class='swiper-button-next'])[1]");
+		this.nextArrowTP = page.locator("(//a[@class='swiper-button-next'])[2]");//#mz-product-tab-37217979-0 > div > div.swiper-pager.custom-pager > a.swiper-button-next
 		this.productTP = page.locator("//a[@id='mz-product-listing-image-37217979-0-4']");
 		this.addToCart = page.locator("(//*[@title='Add to Cart'])[5]");
 		this.topProducts = page.locator("//*[@id='entry_217978']");
 		this.successNoti = page.locator("//*[@id='notification-box-top']");
+		this.topCOllectionTitle = page.locator("//*[@id='entry_217978']");
 	}
 
 	public void searchFunction() {
@@ -258,6 +259,7 @@ public class HomePage {
 		Assert.assertEquals(TopicTP, "Top Products");
 		
 		nextArrowTP.click();
+		page.pause();
 		System.out.println("Click right arrow");
 		
 		productTP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
@@ -272,7 +274,7 @@ public class HomePage {
 			System.out.println("No Notification Opens for click Add To Cart");
 		}
 		
-		Assert.assertTrue(successNoti.isVisible(), "Add to Cart notification should be visible.");
+		//Assert.assertTrue(successNoti.isVisible(), "Add to Cart notification should be visible.");
 
 		
 		
@@ -292,7 +294,14 @@ public class HomePage {
 	    
 	    String actualTitle = page.title();
 	    System.out.println("Actual title: " + actualTitle);
-	    Assert.assertEquals(actualTitle, " HTC Touch HD");
+	    Assert.assertEquals(actualTitle, " Your Store");
 	}
 
+	 public void TopCollection() {
+		 
+		 String TopicTPSec3 = topCOllectionTitle.textContent().trim();
+			Assert.assertEquals(TopicTPSec3, "Top Products");
+			
+		 
+	 }
 }

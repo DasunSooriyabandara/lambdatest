@@ -2,26 +2,29 @@
 <testng-results ignored="6" total="7" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-21T00:03:14 IST" name="Default suite" finished-at="2025-04-21T00:03:30 IST" duration-ms="15772">
+  <suite started-at="2025-04-21T22:39:59 IST" name="Default suite" finished-at="2025-04-21T22:42:31 IST" duration-ms="151859">
     <groups>
     </groups>
-    <test started-at="2025-04-21T00:03:14 IST" name="Default test" finished-at="2025-04-21T00:03:30 IST" duration-ms="15772">
+    <test started-at="2025-04-21T22:39:59 IST" name="Default test" finished-at="2025-04-21T22:42:31 IST" duration-ms="151859">
       <class name="pomTests.HomePageTC">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T00:03:14 IST" name="setUp" finished-at="2025-04-21T00:03:25 IST" duration-ms="10252" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T22:39:59 IST" name="setUp" finished-at="2025-04-21T22:40:12 IST" duration-ms="12812" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="TopProductsCarosel()[pri:5, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T00:03:25 IST" name="TopProductsCarosel" description="Top Products Section Carrosel " finished-at="2025-04-21T00:03:30 IST" duration-ms="5169" status="FAIL">
+        <test-method signature="TopProductsCarosel()[pri:5, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T22:40:12 IST" name="TopProductsCarosel" description="Top Products Section Carrosel " finished-at="2025-04-21T22:42:30 IST" duration-ms="137297" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Add to Cart notification should be visible. expected [true] but found [false]]]>
+              <![CDATA[expected [ HTC Touch HD] but found [Your Store]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Add to Cart notification should be visible. expected [true] but found [false]
+              <![CDATA[java.lang.AssertionError: expected [ HTC Touch HD] but found [Your Store]
 at org.testng.Assert.fail(Assert.java:99)
 at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at com.lt.pages.HomePage.TopProductsSection(HomePage.java:275)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:629)
+at org.testng.Assert.assertEquals(Assert.java:639)
+at com.lt.pages.HomePage.TopProductsSection(HomePage.java:296)
 at pomTests.HomePageTC.TopProductsCarosel(HomePageTC.java:103)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -55,7 +58,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TopProductsCarosel -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T00:03:30 IST" name="tearDown" finished-at="2025-04-21T00:03:30 IST" duration-ms="318" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pomTests.HomePageTC@dd8ba08]" started-at="2025-04-21T22:42:30 IST" name="tearDown" finished-at="2025-04-21T22:42:31 IST" duration-ms="1714" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
