@@ -5,7 +5,7 @@
     <classes>
       <class name="pomTests.HomePageTC">
         <methods>
-          <include name="TopProductsCarosel"/>
+          <include name="TopCollectionSection"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

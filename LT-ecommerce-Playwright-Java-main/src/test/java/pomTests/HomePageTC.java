@@ -30,6 +30,7 @@ public class HomePageTC extends PlaywrightConnection {
 	HomePage twoImages;
 	HomePage topTrending;
 	HomePage TopProducts;
+	HomePage TopCollection;
 
 	@BeforeClass
 	public void setUp() throws Exception {
@@ -102,14 +103,14 @@ public class HomePageTC extends PlaywrightConnection {
 		TopProducts  = new HomePage(page, null);
 		TopProducts.TopProductsSection();
 	}
-//
-//	@Test(priority = 6, description = "Mega Menu - Apple Page - Desktop Link")
-//	public void DesktopPageLink() {
-//		MegaMenuPage DesktopInitials = new MegaMenuPage(page);
-//		DesktopInitials.DesktopPage();
-//
-//	}
-//
+
+	@Test(priority = 6, description = "Top Collection")
+	public void TopCollectionSection() {
+		TopCollection  = new HomePage(page, null);
+		TopCollection.TopCollection();
+
+	}
+
 //	@Test(priority = 7, description = "Mega Menu - Apple Page - Desktop Page - PC Link  ")
 //	public void DesktopPagePClink() {
 //		MegaMenuPage DesktopPCPage = new MegaMenuPage(page);

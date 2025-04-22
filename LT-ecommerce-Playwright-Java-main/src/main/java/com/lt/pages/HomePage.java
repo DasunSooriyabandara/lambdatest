@@ -41,6 +41,10 @@ public class HomePage {
 	private Locator addToCart;
 	private Locator successNoti;
 	private Locator topCOllectionTitle;
+	private Locator topCOll3Titles;
+	
+	
+	
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
 		this.browser = browser; // Save it for later
@@ -77,6 +81,7 @@ public class HomePage {
 		this.topProducts = page.locator("//*[@id='entry_217978']");
 		this.successNoti = page.locator("//*[@id='notification-box-top']");
 		this.topCOllectionTitle = page.locator("//*[@id='entry_217978']");
+		this.topCOll3Titles = page.locator("//*[@class='nav nav-tabs nav-scroll mr-auto']//parent::div");
 	}
 
 	public void searchFunction() {
@@ -299,9 +304,27 @@ public class HomePage {
 
 	 public void TopCollection() {
 		 
-		 String TopicTPSec3 = topCOllectionTitle.textContent().trim();
-			Assert.assertEquals(TopicTPSec3, "Top Products");
+		 String TopicTopColl = topCOllectionTitle.textContent().trim();
+			Assert.assertEquals(TopicTopColl, "Top Products");
 			
-		 
+		String Threecatagories = topCOll3Titles.textContent().trim();
+		Assert.assertEquals(Threecatagories, "Popular    Latest    Best seller");
+		
+		
+		
+		
+		
+		// Locate all 'caption' elements under the swiper-wrapper
+		Locator allCaptions = page.locator("//*[@id='swiper-wrapper-a7b4fd41edb9b187']//div[contains(@class, 'caption')]");
+
+		// Count how many captions were found
+		int count = allCaptions.count();
+		System.out.println("Found " + count + " caption elements:");
+
+		for (int i = 0; i < count; i++) {
+		    String captionText = allCaptions.nth(i).textContent().trim();
+		    System.out.println("Caption " + (i + 1) + ": " + captionText);
+		}
+
 	 }
 }
