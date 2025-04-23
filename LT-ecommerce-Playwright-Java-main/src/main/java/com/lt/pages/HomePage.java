@@ -1,6 +1,7 @@
 package com.lt.pages;
 
 import com.microsoft.playwright.Browser;
+import java.util.HashMap;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import org.testng.asserts.SoftAssert;
@@ -12,6 +13,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -42,9 +44,7 @@ public class HomePage {
 	private Locator successNoti;
 	private Locator topCOllectionTitle;
 	private Locator topCOll3Titles;
-	
-	
-	
+
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
 		this.browser = browser; // Save it for later
@@ -59,23 +59,23 @@ public class HomePage {
 		this.searchBtn = page.locator("(//button[@type='submit'])[1]");
 		this.comparetBtn = page.locator("//*[@id='entry_217823']");
 
-		
-		
 		this.optionOne = page.locator("//*[@id=\"search\"]/div[1]/div[2]/ul/li[1]/div[1]/a");
-		
+
 		this.comparetBtnInsidePage = page.locator("//*[@id='entry_216844']//child::button");
 		this.productCompareBtn = page.locator("#notification-box-top > div > div.toast-body > a");
-		
-		
+
 		this.carroselArrow = page.locator("(//*[@class='carousel-control-next'])[1]");
 		this.carroselImage = page.locator("(//div[@class='carousel-item active'])[1]");
-		//this.carroselArrow = page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
+		// this.carroselArrow =
+		// page.locator("(//div[starts-with(@class,'carousel-item')])[1]");
 		this.topTrendTopic = page.locator("//*[@id='entry_217969']");
 		this.swipBtnNext = page.locator("(//a[@class='swiper-button-next'])[1]");
 		this.swipBtnPrew = page.locator("(//a[@class='swiper-button-prev'])[1]");
 		this.camersLink = page.locator("//*[@aria-label='7 / 8']//child::a");
 		this.camersLink = page.locator("//*[@id='entry_217978']");
-		this.nextArrowTP = page.locator("(//a[@class='swiper-button-next'])[2]");//#mz-product-tab-37217979-0 > div > div.swiper-pager.custom-pager > a.swiper-button-next
+		this.nextArrowTP = page.locator("(//a[@class='swiper-button-next'])[2]");// #mz-product-tab-37217979-0 > div >
+																					// div.swiper-pager.custom-pager >
+																					// a.swiper-button-next
 		this.productTP = page.locator("//a[@id='mz-product-listing-image-37217979-0-4']");
 		this.addToCart = page.locator("(//*[@title='Add to Cart'])[5]");
 		this.topProducts = page.locator("//*[@id='entry_217978']");
@@ -103,15 +103,13 @@ public class HomePage {
 		page.waitForTimeout(3000);
 		page.goBack();
 
-		
 //		comparetBtn.click();
 //		Locator NoProd = page.locator("//p[text()='You have not chosen any products to compare.']");
 //		NoProd.textContent().trim();
 //		Assert.assertEquals(NoProd, "Locator@//p[text()='You have not chosen any products to compare.");
 //		Locator ContinueBtn = page.locator("//*[@id=\"content\"]/div/div/a");
 //		ContinueBtn.click();
-		
-		
+
 		searchCategoryBtn.click();
 		selectOption.click();
 
@@ -120,7 +118,8 @@ public class HomePage {
 		System.out.println("clikc option one");
 
 		String actualTitlesearch = page.title();
-		//actualTitlesearch.wait(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		// actualTitlesearch.wait(new
+		// Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 		Assert.assertEquals(actualTitlesearch, "HTC Touch HD");
 
 	}
@@ -143,12 +142,10 @@ public class HomePage {
 		System.out.println("Actual title: " + actualTitleProdCompare);
 		Assert.assertEquals(actualTitleProdCompare, "Product Comparison");
 
-		
 		Locator RemoveBtn = page.locator("//*[@id=\"content\"]/table/tbody[2]/tr/td[2]/a");
 		RemoveBtn.click();
 		page.waitForTimeout(3000);
-		
-		
+
 		Locator SuccessNotificstions = page.locator("#product-compare > div.alert.alert-success.alert-dismissible");
 		// Wait for the notification to appear (optional if it takes time)
 		SuccessNotificstions.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
@@ -158,173 +155,180 @@ public class HomePage {
 		Assert.assertTrue(SuccessNotificstions.isVisible(), "Notification did not appear!");
 
 		System.out.println("Successfully disply notification Compair this product");
-		
-		
+
 		Locator ContinueBtn = page.locator("//*[@id=\"content\"]/div/div/a");
 		ContinueBtn.click();
 		System.out.println("SUccesssfully click the continue buttona and come to Home page");
-		
 
 	}
-	
+
 	public void BannerOptions() {
-	    // Locate the actual <img> inside the active carousel item
-	    Locator carroselImage = page.locator("(//div[starts-with(@class,'carousel-item') and contains(@class, 'active')]//img)[1]");
+		// Locate the actual <img> inside the active carousel item
+		Locator carroselImage = page
+				.locator("(//div[starts-with(@class,'carousel-item') and contains(@class, 'active')]//img)[1]");
 
-	    // Wait until the image is visible
-	    carroselImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		// Wait until the image is visible
+		carroselImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-	    // Extract the image src attribute
-	    String carroselimageURL = carroselImage.getAttribute("src");
-	    System.out.println("Image URL: " + carroselimageURL);
+		// Extract the image src attribute
+		String carroselimageURL = carroselImage.getAttribute("src");
+		System.out.println("Image URL: " + carroselimageURL);
 
-	    // Ensure the URL is not null
-	    Assert.assertNotNull(carroselimageURL, "Image URL is null");
+		// Ensure the URL is not null
+		Assert.assertNotNull(carroselimageURL, "Image URL is null");
 
-	    // Open a new browser context
+		// Open a new browser context
 //	    BrowserContext newContext = browser.newContext();
 //	    Page newPage = newContext.newPage();
 //
 //	    // Navigate to the extracted image URL
 //	    newPage.navigate(carroselimageURL);
-	    System.out.println("Opened URL in new tab: " + carroselimageURL);
+		System.out.println("Opened URL in new tab: " + carroselimageURL);
 
-	    // Go back and verify title
-	    carroselImage.click();
+		// Go back and verify title
+		carroselImage.click();
 
-	    String actualTitle = page.title();
-	    System.out.println("Actual title: " + actualTitle);
-	    Assert.assertEquals(actualTitle, "iPhone");
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, "iPhone");
 
-	    page.goBack();
+		page.goBack();
 	}
 
-
-	
 	public void BannerImages() {
-	    // Locate the <img> tag inside the banner
-	    Locator bannerImage = page.locator("//*[@title='Lumix S Series From Panasonic']//img");
+		// Locate the <img> tag inside the banner
+		Locator bannerImage = page.locator("//*[@title='Lumix S Series From Panasonic']//img");
 
-	    bannerImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		bannerImage.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-	    String imageURL = bannerImage.getAttribute("src");
-	    System.out.println("Image URL: " + imageURL);
+		String imageURL = bannerImage.getAttribute("src");
+		System.out.println("Image URL: " + imageURL);
 
-	    if (imageURL != null) {
-	    	BrowserContext newContext = page.context().browser().newContext();
-	        Page newPage = newContext.newPage();
-	        newPage.navigate(imageURL);
-	        System.out.println("Opened image in new tab: " + newPage.url());
-	    } else {
-	        System.out.println("Failed to extract image URL.");
-	    }
-	    
-	    String actualTitle = page.title();
-	    System.out.println("Actual title: " + actualTitle);
-	    Assert.assertEquals(actualTitle, "middle-banner-1-580x234.webp (580×234)");
-	    
-	    
+		if (imageURL != null) {
+			BrowserContext newContext = page.context().browser().newContext();
+			Page newPage = newContext.newPage();
+			newPage.navigate(imageURL);
+			System.out.println("Opened image in new tab: " + newPage.url());
+		} else {
+			System.out.println("Failed to extract image URL.");
+		}
+
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, "middle-banner-1-580x234.webp (580×234)");
+
 	}
 
 	public void TopTrendCategory() {
-		
+
 		String Topic = topTrendTopic.textContent().trim();
 		Assert.assertEquals(Topic, "Top Trending Categories");
-		
+
 		swipBtnNext.click();
 		swipBtnPrew.click();
 		swipBtnNext.click();
-		
 
-		 
+		camersLink.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		 camersLink.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		String imageURL = camersLink.getAttribute("href");
+		System.out.println("Image URL: " + imageURL);
 
-		    String imageURL = camersLink.getAttribute("href");
-		    System.out.println("Image URL: " + imageURL);
+		if (imageURL != null) {
+			BrowserContext newContext = page.context().browser().newContext();
+			Page newPage = newContext.newPage();
+			newPage.navigate(imageURL);
+			System.out.println("Opened image in new tab: " + newPage.url());
+		} else {
+			System.out.println("Failed to extract image URL.");
+		}
 
-		    if (imageURL != null) {
-		    	BrowserContext newContext = page.context().browser().newContext();
-		        Page newPage = newContext.newPage();
-		        newPage.navigate(imageURL);
-		        System.out.println("Opened image in new tab: " + newPage.url());
-		    } else {
-		        System.out.println("Failed to extract image URL.");
-		    }
-		    
-		    String actualTitle = page.title();
-		    System.out.println("Actual title: " + actualTitle);
-		    Assert.assertEquals(actualTitle, "Cameras");
-		    
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, "Cameras");
+
 	}
 
 	public void TopProductsSection() {
-		
+
 		String TopicTP = topProducts.textContent().trim();
 		Assert.assertEquals(TopicTP, "Top Products");
-		
+
 		nextArrowTP.click();
 		page.pause();
 		System.out.println("Click right arrow");
-		
+
 		productTP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		
+
 		productTP.hover();
 		addToCart.click();
-		
+
 		Boolean NotiAvailbility = successNoti.isVisible();
-		if(NotiAvailbility) {
+		if (NotiAvailbility) {
 			System.out.println("OPen Addto Cart Notification Successfully");
-		}else {
+		} else {
 			System.out.println("No Notification Opens for click Add To Cart");
 		}
-		
-		//Assert.assertTrue(successNoti.isVisible(), "Add to Cart notification should be visible.");
 
-		
-		
+		// Assert.assertTrue(successNoti.isVisible(), "Add to Cart notification should
+		// be visible.");
+
 		productTP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-	    String imageURL = productTP.getAttribute("href");
-	    System.out.println("Image URL: " + imageURL);
+		String imageURL = productTP.getAttribute("href");
+		System.out.println("Image URL: " + imageURL);
 
-	    if (imageURL != null) {
-	    	BrowserContext newContext = page.context().browser().newContext();
-	        Page newPage = newContext.newPage();
-	        newPage.navigate(imageURL);
-	        System.out.println("Opened image in new tab: " + newPage.url());
-	    } else {
-	        System.out.println("Failed to extract image URL.");
-	    }
-	    
-	    String actualTitle = page.title();
-	    System.out.println("Actual title: " + actualTitle);
-	    Assert.assertEquals(actualTitle, " Your Store");
-	}
-
-	 public void TopCollection() {
-		 
-		 String TopicTopColl = topCOllectionTitle.textContent().trim();
-			Assert.assertEquals(TopicTopColl, "Top Products");
-			
-		String Threecatagories = topCOll3Titles.textContent().trim();
-		Assert.assertEquals(Threecatagories, "Popular    Latest    Best seller");
-		
-		
-		
-		
-		
-		// Locate all 'caption' elements under the swiper-wrapper
-		Locator allCaptions = page.locator("//*[@id='swiper-wrapper-a7b4fd41edb9b187']//div[contains(@class, 'caption')]");
-
-		// Count how many captions were found
-		int count = allCaptions.count();
-		System.out.println("Found " + count + " caption elements:");
-
-		for (int i = 0; i < count; i++) {
-		    String captionText = allCaptions.nth(i).textContent().trim();
-		    System.out.println("Caption " + (i + 1) + ": " + captionText);
+		if (imageURL != null) {
+			BrowserContext newContext = page.context().browser().newContext();
+			Page newPage = newContext.newPage();
+			newPage.navigate(imageURL);
+			System.out.println("Opened image in new tab: " + newPage.url());
+		} else {
+			System.out.println("Failed to extract image URL.");
 		}
 
-	 }
-}
+		String actualTitle = page.title();
+		System.out.println("Actual title: " + actualTitle);
+		Assert.assertEquals(actualTitle, " Your Store");
+	}
+
+	public void TopCollection() {
+
+		String TopicTopColl = topCOllectionTitle.textContent().trim();
+		Assert.assertEquals(TopicTopColl, "Top Products");
+
+		String Threecatagories = topCOll3Titles.textContent().trim();
+		Assert.assertEquals(Threecatagories, "Popular    Latest    Best seller");
+
+		// ---------------------
+
+		Locator allSlides = page.locator("#mz-product-tab-39217984-0 > div");
+		String AllItems = allSlides.textContent().trim();
+
+		System.out.println(AllItems);
+
+		int count = allSlides.count();
+	    System.out.println(count);
+	    
+	    List<String> expectedProducts = Arrays.asList(
+	    	    "HTC Touch HD",
+	    	    "iPhone",
+	    	    "MacBook Pro",
+	    	    "Apple Cinema 30",
+	    	    "iPod Nano",
+	    	    "Samsung Galaxy Tab 10.1"
+	    	);
+
+	    	for (String product : expectedProducts) {
+	    	    Assert.assertTrue(AllItems.contains(product), "Missing expected product: " + product);
+	    	}
+
+		}
+		
+		
+	
+
+		
+
+
+	}
+
