@@ -44,6 +44,8 @@ public class HomePage {
 	private Locator successNoti;
 	private Locator topCOllectionTitle;
 	private Locator topCOll3Titles;
+	private Locator topCollTitlLatest;
+	private Locator topCollTitlBestSeller;
 
 	public HomePage(Page page, Browser browser) {
 		this.page = page;
@@ -82,6 +84,8 @@ public class HomePage {
 		this.successNoti = page.locator("//*[@id='notification-box-top']");
 		this.topCOllectionTitle = page.locator("//*[@id='entry_217978']");
 		this.topCOll3Titles = page.locator("//*[@class='nav nav-tabs nav-scroll mr-auto']//parent::div");
+		this.topCollTitlLatest = page.locator("(//*[@class='nav-link icon-left'])[1]");
+		this.topCollTitlBestSeller = page.locator("(//*[@class='nav-link icon-left active'])[1]");
 	}
 
 	public void searchFunction() {
@@ -302,33 +306,83 @@ public class HomePage {
 		// ---------------------
 
 		Locator allSlides = page.locator("#mz-product-tab-39217984-0 > div");
+		allSlides.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		Assert.assertTrue(allSlides.isVisible(), "Popoler section items not loaded");
+
 		String AllItems = allSlides.textContent().trim();
 
 		System.out.println(AllItems);
 
 		int count = allSlides.count();
-	    System.out.println(count);
-	    
-	    List<String> expectedProducts = Arrays.asList(
-	    	    "HTC Touch HD",
-	    	    "iPhone",
-	    	    "MacBook Pro",
-	    	    "Apple Cinema 30",
-	    	    "iPod Nano",
-	    	    "Samsung Galaxy Tab 10.1"
-	    	);
+		System.out.println(count);
 
-	    	for (String product : expectedProducts) {
-	    	    Assert.assertTrue(AllItems.contains(product), "Missing expected product: " + product);
-	    	}
+		List<String> expectedProducts = Arrays.asList("HTC Touch HD", "$146.00", "Apple Cinema 30", "$122.00",
+				"iPod Nano", "$122.00", "Palm Treo Pro", "$337.99", "iPhone", "$123.20", "Canon EOS 5D", "$134.00",
+				"  iPod Touch", "$194.00", " iPod Shuffle", "$182.00", "Nikon D300", "$98.00", "MacBook Pro",
+				"$2,000.00", "iMac", "$170.00", " Samsung SyncMaster 941BW", "Samsung Galaxy Tab 10.1", "$241.99",
+				"HTC Touch HD", "$146.00", "MacBook", "$602.00", "Sony VAIO", "$1,202.00", "HP LP3065", "$122.00",
+				"iPod Classic", "$122.00", "MacBook Air", "$1,202.00", "Apple Cinema 30\"", "$122.00",
+				"Apple Cinema 30\"", "$122.00", "Apple Cinema 30\"", "$122.00", "Apple Cinema 30\"", "$122.00", "iMac",
+				"$170.00");
 
+		for (String product : expectedProducts) {
+			Assert.assertTrue(AllItems.contains(product), "Missing expected product Popular: " + product);
 		}
-		
-		
-	
+		System.out.println("Populer run end");
+		// -------------------Top collection----------------------
+		topCollTitlLatest.click();
+		System.out.println("Click Latest");
 
-		
+		Locator allSlidesL = page.locator("#mz-product-tab-39217984-1");
+		allSlidesL.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		Assert.assertTrue(allSlidesL.isVisible(), "Latest section items not loaded");
 
+		String AllItemsL = allSlidesL.textContent().trim();
+
+		System.out.println(AllItemsL);
+
+		int countL = allSlidesL.count();
+		System.out.println(countL);
+
+		List<String> expectedProductsL = Arrays.asList("iMac", "$170.00", "HTC Touch HD", "$146.00", "HP LP3065",
+				"$122.00", "Canon EOS 5D", "$134.00", "Apple Cinema 30\"", "$122.00", "iPod Touch", "$194.00",
+				"iPod Shuffle", "$182.00"
+
+		);
+
+		for (String productL : expectedProductsL) {
+			Assert.assertTrue(AllItemsL.contains(productL), "Missing expected product Latest: " + productL);
+		}
+
+		// --------------------Best sellet-----
+
+		topCollTitlBestSeller.click();
+		System.out.println("Click Best sellet");
+
+		Locator allSlidesBS = page.locator("//*[@id=\"mz-product-listing-39217984\"]/div[2]/div");
+		allSlidesBS.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		Assert.assertTrue(allSlidesBS.isVisible(), "Latest section items not loaded");
+
+		String AllItemsBS = allSlidesBS.textContent().trim();
+
+		System.out.println(AllItemsBS);
+
+		int countBS = allSlidesBS.count();
+		System.out.println(countBS);
+
+		List<String> expectedProductsBS = Arrays.asList("HTC Touch HD", "$146.00", "HP LP3065", "$122.00",
+				"Palm Treo Pro", "$337.99", "iPod Touch", "$194.00", "Sony VAIO", "$1,202.00", "MacBook Air",
+				"$1,202.00", "iPod Shuffle", "$182.00", "MacBook Pro", "$2,000.00", "Nikon D300", "$98.00", "iMac",
+				"$170.00", "Samsung SyncMaster 941BW", "$242.00", "iPhone", "$123.20", "MacBook", "$602.00",
+				"Nikon D300", "$98.00", "HTC Touch HD", "$146.00", "iPod Classic", "$122.00", "iPod Nano", "$122.00",
+				"Samsung SyncMaster 941BW", "$242.00", "iMac", "$170.00", "Apple Cinema 30\"", "$122.00"
+
+		);
+
+		for (String productBS : expectedProductsBS) {
+			Assert.assertTrue(AllItemsBS.contains(productBS), "Missing expected product Latest: " + productBS);
+		}
 
 	}
 
+}
