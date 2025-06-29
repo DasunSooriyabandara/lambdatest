@@ -354,7 +354,7 @@ public class HomePage {
 			Assert.assertTrue(AllItemsL.contains(productL), "Missing expected product Latest: " + productL);
 		}
 
-		// --------------------Best sellet-----
+		// --------------------Best sellet------------------------
 
 		topCollTitlBestSeller.click();
 		System.out.println("Click Best sellet");
@@ -382,6 +382,27 @@ public class HomePage {
 		for (String productBS : expectedProductsBS) {
 			Assert.assertTrue(AllItemsBS.contains(productBS), "Missing expected product Latest: " + productBS);
 		}
+
+		// ---------Banner image--------------------
+		Locator bannerImageAiP = page.locator("//*[@data-id='217985']/child::a");
+
+		bannerImageAiP.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		page.pause();
+		String imageURL = bannerImageAiP.getAttribute("href");
+		System.out.println("Image URL: " + imageURL);
+
+		if (imageURL != null) {
+			BrowserContext newContext = page.context().browser().newContext();
+			Page newPage = newContext.newPage();
+			newPage.navigate(imageURL);
+			System.out.println("Opened image in new tab: " + newPage.url());
+		} else {
+			System.out.println("Failed to extract image URL.");
+		}
+
+		String actualTitleApi = page.title();
+		System.out.println("Actual title: " + actualTitleApi);
+		Assert.assertEquals(actualTitleApi, "Your Store");
 
 	}
 
